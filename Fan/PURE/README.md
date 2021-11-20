@@ -1,177 +1,143 @@
-# PURE: Entity and Relation Extraction from Text
+<div id="top"></div>
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-This repository contains  (PyTorch) code and pre-trained models for PURE (the **P**rinceton **U**niversity **R**elation **E**xtraction system), described by the paper: [A Frustratingly Easy Approach for Entity and Relation Extraction](https://arxiv.org/pdf/2010.12812.pdf).
 
-## Quick links
-* [Overview](#Overview)
-* [Setup](#Setup)
-  * [Install dependencies](#Install-dependencies)
-  * [Data preprocessing](#Download-and-preprocess-the-datasets)
-* [Quick Start](#Quick-start)
-* [Entity Model](#Entity-Model)
-  * [Input data format](#Input-data-format-for-the-entity-model)
-  * [Train/evaluate the entity model](#Train/evaluate-the-entity-model)
-* [Relation Model](#Relation-Model)
-  * [Input data format](#Input-data-format-for-the-relation-model)
-  * [Train/evaluate the relation model](#Train/evaluate-the-relation-model)
-  * [Approximation relation model](#Approximation-relation-model)
-* [Pre-trained Models](#Pre-trained-Models)
-  * [Pre-trained models for ACE05](#Pre-trained-models-for-ACE05)
-  * [Pre-trained models for SciERC](#Pre-trained-models-for-SciERC)
-* [Bugs or Questions?](#Bugs-or-questions)
-* [Citation](#Citation)
 
-## Overview
-![](./figs/overview.png)
-In this work, we present a simple approach for entity and relation extraction. Our approach contains three conponents:
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-1. The **entity model** takes a piece of text as input and predicts all the entities at once.
-2. The **relation model** considers every pair of entities independently by inserting typed entity markers, and predicts the relation type for each pair.
-3. The **approximation relation model** supports batch computations, which enables efficient inference for the relation model.
 
-Please find more details of this work in our [paper](https://arxiv.org/pdf/2010.12812.pdf).
 
-## Setup
+<!-- PROJECT LOGO -->
+<!-- <br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-### Install dependencies
-Please install all the dependency packages using the following command:
-```
-pip install -r requirements.txt
-```
+  <h3 align="center">Best-README-Template</h3>
 
-### Download and preprocess the datasets
+  <p align="center">
+    An awesome README template to jumpstart your projects!
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</div> -->
+
+
+
+<!-- TABLE OF CONTENTS
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details> -->
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+
+Project for improving the performance of Relation extraction model built on top of PURE
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  pip install -r requirements.txt
+  ```
+
+### Download Data
+
 Our experiments are based on three datasets: ACE04, ACE05, and SciERC. Please find the links and pre-processing below:
 * ACE04/ACE05: We use the preprocessing code from [DyGIE repo](https://github.com/luanyi/DyGIE/tree/master/preprocessing). Please follow the instructions to preprocess the ACE05 and ACE04 datasets.
 * SciERC: The preprocessed SciERC dataset can be downloaded in their project [website](http://nlp.cs.washington.edu/sciIE/).
 
+
+```sh
+cd ProjectPURE/<Mukund/Fan>/PURE
+cd PURE
+pip install gdown
+gdown https://drive.google.com/uc?id=1Ls8bNSWVbZ2HZiXsZdnh8HL01NY6yk9H
+gdown https://drive.google.com/uc?id=1rq0MDeP93LXpVeYh3GN48JhqBeaWR7Vc
+unzip ace05.zip
+unzip data.zip -d DyGIE/
+rm ace05.zip
+rm data.zip
+```
+
 ## Quick Start
-The following commands can be used to download the preprocessed SciERC dataset and run our pre-trained models on SciERC.
-
+The following commands can be used to download the preprocessed SciERC dataset and run our pre-trained models on ACE05.
 ```bash
-# Download the SciERC dataset
-wget http://nlp.cs.washington.edu/sciIE/data/sciERC_processed.tar.gz
-mkdir scierc_data; tar -xf sciERC_processed.tar.gz -C scierc_data; rm -f sciERC_processed.tar.gz
-scierc_dataset=scierc_data/processed_data/json/
-
-# Download the pre-trained models (single-sentence)
-mkdir scierc_models; cd scierc_models
-
-# Download the pre-trained entity model
-wget https://nlp.cs.princeton.edu/projects/pure/scierc_models/ent-scib-ctx0.zip
-unzip ent-scib-ctx0.zip; rm -f ent-scib-ctx0.zip
-scierc_ent_model=scierc_models/ent-scib-ctx0/
-
-# Download the pre-trained full relation model
-wget https://nlp.cs.princeton.edu/projects/pure/scierc_models/rel-scib-ctx0.zip
-unzip rel-scib-ctx0.zip; rm -f rel-scib-ctx0.zip
-scierc_rel_model=scierc_models/rel-scib-ctx0/
-
-# Download the pre-trained approximation relation model
-wget https://nlp.cs.princeton.edu/projects/pure/scierc_models/rel_approx-scib-ctx0.zip
-unzip rel_approx-scib-ctx0.zip; rm -f rel_approx-scib-ctx0.zip
-scierc_rel_model_approx=scierc_models/rel_approx-scib-ctx0/
-
-cd ..
-
-# Run the pre-trained entity model, the result will be stored in ${scierc_ent_model}/ent_pred_test.json
-python run_entity.py \
-    --do_eval --eval_test \
-    --context_window 0 \
-    --task scierc \
-    --data_dir ${scierc_dataset} \
-    --model allenai/scibert_scivocab_uncased \
-    --output_dir ${scierc_ent_model}
-
-# Run the pre-trained full relation model
 python run_relation.py \
-  --task scierc \
+  --task ace05 \
   --do_eval --eval_test \
-  --model allenai/scibert_scivocab_uncased \
+  --model bert-base-uncased \
   --do_lower_case \
-  --context_window 0\
+  --context_window 100\
   --max_seq_length 128 \
-  --entity_output_dir ${scierc_ent_model} \
-  --output_dir ${scierc_rel_model}
-  
-# Output end-to-end evaluation results
-python run_eval.py --prediction_file ${scierc_rel_model}/predictions.json
-
-# Run the pre-trained approximation relation model (with batch computation)
-python run_relation_approx.py \
-  --task scierc \
-  --do_eval --eval_test \
-  --model allenai/scibert_scivocab_uncased \
-  --do_lower_case \
-  --context_window 0\
-  --max_seq_length 250 \
-  --entity_output_dir ${scierc_ent_model} \
-  --output_dir ${scierc_rel_model_approx} \
-  --batch_computation
-
-# Output end-to-end evaluation results
-python run_eval.py --prediction_file ${scierc_rel_model_approx}/predictions.json
-```
-
-## Entity Model
-
-### Input data format for the entity model
-
-The input data format of the entity model is JSONL. Each line of the input file contains one document in the following format.
-```
-{
-  # document ID (please make sure doc_key can be used to identify a certain document)
-  "doc_key": "CNN_ENG_20030306_083604.6",
-
-  # sentences in the document, each sentence is a list of tokens
-  "sentences": [
-    [...],
-    [...],
-    ["tens", "of", "thousands", "of", "college", ...],
-    ...
-  ],
-
-  # entities (boundaries and entity type) in each sentence
-  "ner": [
-    [...],
-    [...],
-    [[26, 26, "LOC"], [14, 14, "PER"], ...], #the boundary positions are indexed in the document level
-    ...,
-  ],
-
-  # relations (two spans and relation type) in each sentence
-  "relations": [
-    [...],
-    [...],
-    [[14, 14, 10, 10, "ORG-AFF"], [14, 14, 12, 13, "ORG-AFF"], ...],
-    ...
-  ]
-}
+  --entity_output_dir DyGIE/data/ace05/json \
+  --entity_predictions_test test.json \
+  --eval_with_gold \
+  --output_dir ace05/rel-bert-ctx0
 ```
 
 ### Train/evaluate the entity model
-
-You can use `run_entity.py` with `--do_train` to train an entity model and with `--do_eval` to evaluate an entity model.
-A trianing command template is as follow:
-```bash
-python run_entity.py \
-    --do_train --do_eval [--eval_test] \
-    --learning_rate=1e-5 --task_learning_rate=5e-4 \
-    --train_batch_size=16 \
-    --context_window {0 | 100 | 300} \
-    --task {ace05 | ace04 | scierc} \
-    --data_dir {directory of preprocessed dataset} \
-    --model {bert-base-uncased | albert-xxlarge-v1 | allenai/scibert_scivocab_uncased} \
-    --output_dir {directory of output files}
-```
-Arguments:
-* `--learning_rate`: the learning rate for BERT encoder parameters.
-* `--task_learning_rate`: the learning rate for task-specific parameters, i.e., the classifier head after the encoder.
-* `--context_window`: the context window size used in the model. `0` means using no contexts. In our cross-sentence entity experiments, we use `--context_window 300` for BERT models and SciBERT models and use `--context_window 100` for ALBERT models.
-* `--model`: the base transformer model. We use `bert-base-uncased` and `albert-xxlarge-v1` for ACE04/ACE05 and use `allenai/scibert_scivocab_uncased` for SciERC.
-* `--eval_test`: whether evaluate on the test set or not.
-
-The predictions of the entity model will be saved as a file (`ent_pred_dev.json`) in the `output_dir` directory. If you set `--eval_test`, the predictions (`ent_pred_test.json`) are on the test set. The prediction file of the entity model will be the input file of the relation model.
-
 ## Relation Model
 ### Input data format for the relation model
 The input data format of the relation model is almost the same as that of the entity model, except that there is one more filed `."predicted_ner"` to store the predictions of the entity model.
@@ -194,19 +160,21 @@ The input data format of the relation model is almost the same as that of the en
 You can use `run_relation.py` with `--do_train` to train a relation model and with `--do_eval` to evaluate a relation model. A trianing command template is as follow:
 ```bash
 python run_relation.py \
-  --task {ace05 | ace04 | scierc} \
-  --do_train --train_file {path to the training json file of the dataset} \
-  --do_eval [--eval_test] [--eval_with_gold] \
-  --model {bert-base-uncased | albert-xxlarge-v1 | allenai/scibert_scivocab_uncased} \
+  --task ace05 \
+  --do_train --train_file DyGIE/data/ace05/json/train.json \
+  --do_eval --eval_test --eval_with_gold \
+  --model bert-base-uncased \
   --do_lower_case \
   --train_batch_size 32 \
   --eval_batch_size 32 \
   --learning_rate 2e-5 \
   --num_train_epochs 10 \
-  --context_window {0 | 100} \
-  --max_seq_length {128 | 228} \
-  --entity_output_dir {path to output files of the entity model} \
-  --output_dir {directory of output files}
+  --context_window 0 \
+  --max_seq_length 128 \
+  --entity_output_dir DyGIE/data/ace05/json \
+  --entity_predictions_dev dev.json \
+  --entity_predictions_test test.json \
+  --output_dir ace05/trainedModel/
 ```
 Aruguments:
 * `--eval_with_gold`: whether evaluate the model with the gold entities provided.
@@ -219,40 +187,6 @@ You can run the evaluation script to output the end-to-end performance  (`Ent`, 
 python run_eval.py --prediction_file {path to output_dir}/predictions.json
 ```
 
-### Approximation relation model
-You can use the following command to train an approximation model.
-```bash
-python run_relation_approx.py \
- --task {ace05 | ace04 | scierc} \
- --do_train --train_file {path to the training json file of the dataset} \
- --do_eval [--eval_with_gold] \
- --model {bert-base-uncased | allenai/scibert_scivocab_uncased} \
- --do_lower_case \
- --train_batch_size 32 \
- --eval_batch_size 32 \
- --learning_rate 2e-5 \
- --num_train_epochs 10 \
- --context_window {0 | 100} \
- --max_seq_length {128 | 228} \
- --entity_output_dir {path to output files of the entity model} \
- --output_dir {directory of output files}
-```
-
-Once you have a trained approximation model, you can enable efficient batch computation during inference with `--batch_computation`:
-```bash
-python run_relation_approx.py \
- --task {ace05 | ace04 | scierc} \
- --do_eval [--eval_test] [--eval_with_gold] \
- --model {bert-base-uncased | allenai/scibert_scivocab_uncased} \
- --do_lower_case \
- --eval_batch_size 32 \
- --context_window {0 | 100} \
- --max_seq_length 250 \
- --entity_output_dir {path to output files of the entity model} \
- --output_dir {directory of output files} \
- --batch_computation
-```
-*Note*: the current code does not support approximation models based on ALBERT.
 
 ## Pre-trained Models
 We release our pre-trained entity models and relation models for ACE05 and SciERC datasets.
@@ -274,6 +208,7 @@ We release our pre-trained entity models and relation models for ACE05 and SciER
 * [BERT (cross, W=100)](https://nlp.cs.princeton.edu/projects/pure/ace05_models/rel-bert-ctx100.zip) (387M): Cross-sentence relation model based on `bert-base-uncased`
 * [BERT-approx (cross, W=100)](https://nlp.cs.princeton.edu/projects/pure/ace05_models/rel_approx-bert-ctx100.zip) (387M): Crosss-sentence approximation relation model based on `bert-base-uncased`
 * [ALBERT (cross, W=100)](https://nlp.cs.princeton.edu/projects/pure/ace05_models/rel-alb-ctx100.zip) (789M): Cross-sentence relation model based on `albert-xxlarge-v1`
+
 
 **Performance of pretrained models on ACE05 test set**:
 * BERT (single)
@@ -363,3 +298,4 @@ If you use our code in your research, please cite our work:
    year={2021}
 }
 ```
+
