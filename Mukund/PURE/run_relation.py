@@ -22,8 +22,10 @@ from relation.models import BertForRelation, AlbertForRelation
 from transformers import AutoTokenizer
 from transformers import AdamW, get_linear_schedule_with_warmup
 
-from relation.utils import generate_relation_data, decode_sample_id
+from relation.utils import generate_relation_data, decode_sample_id, generate_relation_data_meta_learning
 from shared.const import task_rel_labels, task_ner_labels
+
+import higher
 
 CLS = "[CLS]"
 SEP = "[SEP]"
@@ -288,6 +290,195 @@ def save_trained_model(output_dir, model, tokenizer):
     model_to_save.config.to_json_file(output_config_file)
     tokenizer.save_vocabulary(output_dir)
 
+def perform_meta_training(arg):
+    device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
+    n_gpu = torch.cuda.device_count()
+    train_dataset, train_examples_meta_train, train_examples_meta_test, train_nrel = generate_relation_data_meta_learning(args.train_file, use_gold=True, context_window=args.context_window)
+
+    if not os.path.exists(args.output_dir):
+        os.makedirs(args.output_dir)
+    if args.do_train:
+        logger.addHandler(logging.FileHandler(os.path.join(args.output_dir, "train.log"), 'w'))
+    else:
+        logger.addHandler(logging.FileHandler(os.path.join(args.output_dir, "eval.log"), 'w'))
+    logger.info(sys.argv)
+    logger.info(args)
+    logger.info("device: {}, n_gpu: {}".format(
+        device, n_gpu))
+
+    # get label_list
+    if os.path.exists(os.path.join(args.output_dir, 'label_list.json')):
+        with open(os.path.join(args.output_dir, 'label_list.json'), 'r') as f:
+            label_list = json.load(f)
+    else:
+        label_list = [args.negative_label] + task_rel_labels[args.task]
+        with open(os.path.join(args.output_dir, 'label_list.json'), 'w') as f:
+            json.dump(label_list, f)
+    label2id = {label: i for i, label in enumerate(label_list)}
+    id2label = {i: label for i, label in enumerate(label_list)}
+    num_labels = len(label_list)
+
+    tokenizer = AutoTokenizer.from_pretrained(args.model, do_lower_case=args.do_lower_case)
+    if args.add_new_tokens:
+        add_marker_tokens(tokenizer, task_ner_labels[args.task])
+
+    if os.path.exists(os.path.join(args.output_dir, 'special_tokens.json')):
+        with open(os.path.join(args.output_dir, 'special_tokens.json'), 'r') as f:
+            special_tokens = json.load(f)
+    else:
+        special_tokens = {}
+
+
+    if args.do_eval and (args.do_train or not(args.eval_test)):
+        eval_dataset, eval_examples, eval_nrel = generate_relation_data(os.path.join(args.entity_output_dir, args.entity_predictions_dev), use_gold=args.eval_with_gold, context_window=args.context_window)
+        eval_features = convert_examples_to_features(
+            eval_examples, label2id, args.max_seq_length, tokenizer, special_tokens, unused_tokens=not(args.add_new_tokens))
+        logger.info("***** Dev *****")
+        logger.info("  Num examples = %d", len(eval_examples))
+        logger.info("  Batch size = %d", args.eval_batch_size)
+        all_input_ids = torch.tensor([f.input_ids for f in eval_features], dtype=torch.long)
+        all_input_mask = torch.tensor([f.input_mask for f in eval_features], dtype=torch.long)
+        all_segment_ids = torch.tensor([f.segment_ids for f in eval_features], dtype=torch.long)
+        all_label_ids = torch.tensor([f.label_id for f in eval_features], dtype=torch.long)
+        all_sub_idx = torch.tensor([f.sub_idx for f in eval_features], dtype=torch.long)
+        all_obj_idx = torch.tensor([f.obj_idx for f in eval_features], dtype=torch.long)
+        eval_data = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids, all_sub_idx, all_obj_idx)
+        eval_dataloader = DataLoader(eval_data, batch_size=args.eval_batch_size)
+        eval_label_ids = all_label_ids
+    with open(os.path.join(args.output_dir, 'special_tokens.json'), 'w') as f:
+        json.dump(special_tokens, f)
+
+    
+    train_features_meta_train= convert_examples_to_features(
+            train_examples_meta_train, label2id, args.max_seq_length, tokenizer, special_tokens, unused_tokens=not(args.add_new_tokens))
+    
+    train_features_meta_test = convert_examples_to_features(
+            train_examples_meta_test, label2id, args.max_seq_length, tokenizer, special_tokens, unused_tokens=not(args.add_new_tokens))
+
+    # if args.train_mode == 'sorted' or args.train_mode == 'random_sorted':
+    #     train_features_meta_train = sorted(train_features_meta_train, key=lambda f: np.sum(f.input_mask))
+    # else:
+    #     random.shuffle(train_features_meta_train)
+
+    #Prepare meta-train dataset
+    all_input_ids_meta_train = torch.tensor([f.input_ids for f in train_features_meta_train], dtype=torch.long)
+    all_input_mask_meta_train = torch.tensor([f.input_mask for f in train_features_meta_train], dtype=torch.long)
+    all_segment_ids_meta_train = torch.tensor([f.segment_ids for f in train_features_meta_train], dtype=torch.long)
+    all_label_ids_meta_train = torch.tensor([f.label_id for f in train_features_meta_train], dtype=torch.long)
+    all_sub_idx_meta_train = torch.tensor([f.sub_idx for f in train_features_meta_train], dtype=torch.long)
+    all_obj_idx_meta_train = torch.tensor([f.obj_idx for f in train_features_meta_train], dtype=torch.long)
+    train_data_meta_train = TensorDataset(all_input_ids_meta_train, all_input_mask_meta_train, all_segment_ids_meta_train, 
+                                            all_label_ids_meta_train, all_sub_idx_meta_train, all_obj_idx_meta_train)
+    train_dataloader_meta_train = DataLoader(train_data_meta_train, batch_size=args.train_batch_size)
+    train_batches_meta_train = [batch for batch in train_dataloader_meta_train]
+
+    #prepare meta-test dataset
+    all_input_ids_meta_test = torch.tensor([f.input_ids for f in train_features_meta_test], dtype=torch.long)
+    all_input_mask_meta_test = torch.tensor([f.input_mask for f in train_features_meta_test], dtype=torch.long)
+    all_segment_ids_meta_test = torch.tensor([f.segment_ids for f in train_features_meta_test], dtype=torch.long)
+    all_label_ids_meta_test = torch.tensor([f.label_id for f in train_features_meta_test], dtype=torch.long)
+    all_sub_idx_meta_test = torch.tensor([f.sub_idx for f in train_features_meta_test], dtype=torch.long)
+    all_obj_idx_meta_test = torch.tensor([f.obj_idx for f in train_features_meta_test], dtype=torch.long)
+    train_data_meta_test = TensorDataset(all_input_ids_meta_test, all_input_mask_meta_test, all_segment_ids_meta_test, 
+                                            all_label_ids_meta_test, all_sub_idx_meta_test, all_obj_idx_meta_test)
+    train_dataloader_meta_test = DataLoader(train_data_meta_test, batch_size=args.train_batch_size)
+    train_batches_meta_test = [batch for batch in train_dataloader_meta_test]
+
+
+    num_train_optimization_steps = len(train_dataloader_meta_train) * args.num_train_epochs
+
+    logger.info("***** Training *****")
+    logger.info("  Num examples = %d", len(train_examples_meta_train))
+    logger.info("  Batch size = %d", args.train_batch_size)
+    logger.info("  Num steps = %d", num_train_optimization_steps)
+
+    best_result = None
+    eval_step = max(1, len(train_batches_meta_train) // args.eval_per_epoch)
+    
+    lr = args.learning_rate
+    model = RelationModel.from_pretrained(
+        args.model, cache_dir=str(PYTORCH_PRETRAINED_BERT_CACHE), num_rel_labels=num_labels)
+    if hasattr(model, 'bert'):
+        model.bert.resize_token_embeddings(len(tokenizer))
+    elif hasattr(model, 'albert'):
+        model.albert.resize_token_embeddings(len(tokenizer))
+    else:
+        raise TypeError("Unknown model class")
+
+    model.to(device)
+    if n_gpu > 1:
+        model = torch.nn.DataParallel(model)
+
+    param_optimizer = list(model.named_parameters())
+    no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
+    optimizer_grouped_parameters = [
+        {'params': [p for n, p in param_optimizer
+                    if not any(nd in n for nd in no_decay)], 'weight_decay': 0.01},
+        {'params': [p for n, p in param_optimizer
+                    if any(nd in n for nd in no_decay)], 'weight_decay': 0.0}
+    ]
+    optimizer = AdamW(optimizer_grouped_parameters, lr=lr, correct_bias=not(args.bertadam))
+    scheduler = get_linear_schedule_with_warmup(optimizer, int(num_train_optimization_steps * args.warmup_proportion), num_train_optimization_steps)
+
+    start_time = time.time()
+    global_step = 0
+    tr_loss = 0
+    nb_tr_examples = 0
+    nb_tr_steps = 0
+
+    for epoch in range(int(args.num_train_epochs)):
+        inner_opt = AdamW(optimizer_grouped_parameters, lr=lr, correct_bias=not(args.bertadam)) #Change this as part of experiment, currently set the same as original otpimizer 
+        model.train()
+        logger.info("Start epoch #{} (lr = {})...".format(epoch, lr))
+        for step, (batch_meta_train, batch_meta_test) in enumerate(zip(train_batches_meta_train, train_batches_meta_test)):
+            batch_meta_train = tuple(t.to(device) for t in batch_meta_train)
+            batch_meta_test = tuple(t.to(device) for t in batch_meta_test)
+
+            
+
+            # trains the model.
+            with torch.backends.cudnn.flags(enabled=False), higher.innerloop_ctx(model, inner_opt, copy_initial_weights=False) as (fast_model, diffopt):
+                fast_model.train()
+                input_ids, input_mask, segment_ids, label_ids, sub_idx, obj_idx = batch_meta_train
+                meta_train_loss = fast_model(input_ids, segment_ids, input_mask, label_ids, sub_idx, obj_idx)
+                if n_gpu > 1:
+                    meta_train_loss = meta_train_loss.mean()
+                
+                diffopt.step(meta_train_loss) # computing temporary params on meta-train set
+
+                input_ids, input_mask, segment_ids, label_ids, sub_idx, obj_idx = batch_meta_test
+                meta_test_loss = fast_model(input_ids, segment_ids, input_mask, label_ids, sub_idx, obj_idx)
+
+                if n_gpu > 1:
+                    meta_test_loss = meta_test_loss.mean()
+
+                meta_test_loss.backward() # accumulating the gradients using meta_test
+                
+            optimizer.step()
+            scheduler.step()
+            optimizer.zero_grad()
+            global_step += 1
+            if (step + 1) % eval_step == 0:
+                logger.info('Epoch: {}, Step: {} / {}, used_time = {:.2f}s, loss = {:.6f}'.format(
+                            epoch, step + 1, len(train_batches_meta_train),
+                            time.time() - start_time, tr_loss / nb_tr_steps))
+                save_model = False
+                if args.do_eval:
+                    preds, result, logits = evaluate(model, device, eval_dataloader, eval_label_ids, num_labels, e2e_ngold=eval_nrel)
+                    model.train()
+                    result['global_step'] = global_step
+                    result['epoch'] = epoch
+                    result['learning_rate'] = lr
+                    result['batch_size'] = args.train_batch_size
+
+                    if (best_result is None) or (result[args.eval_metric] > best_result[args.eval_metric]):
+                        best_result = result
+                        logger.info("!!! Best dev %s (lr=%s, epoch=%d): %.2f" %
+                                    (args.eval_metric, str(lr), epoch, result[args.eval_metric] * 100.0))
+                        save_trained_model(args.output_dir, model, tokenizer)
+
+
+
 def main(args):
     if 'albert' in args.model:
         RelationModel = AlbertForRelation
@@ -312,13 +503,14 @@ def main(args):
     #   print(data)
     # return
     setseed(args.seed)
+    # return
 
-    if not args.do_train and not args.do_eval:
+    if not args.do_train and not args.do_eval and not args.do_meta_train:
         raise ValueError("At least one of `do_train` or `do_eval` must be True.")
 
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
-    if args.do_train:
+    if args.do_train or args.do_meta_train:
         logger.addHandler(logging.FileHandler(os.path.join(args.output_dir, "train.log"), 'w'))
     else:
         logger.addHandler(logging.FileHandler(os.path.join(args.output_dir, "eval.log"), 'w'))
@@ -466,6 +658,10 @@ def main(args):
                                         (args.eval_metric, str(lr), epoch, result[args.eval_metric] * 100.0))
                             save_trained_model(args.output_dir, model, tokenizer)
 
+    #Perform Meta-learning
+    if args.do_meta_train:
+        perform_meta_training(args)
+
     evaluation_results = {}
     if args.do_eval:
         logger.info(special_tokens)
@@ -511,6 +707,7 @@ if __name__ == "__main__":
                              "than this will be padded.")
     parser.add_argument("--negative_label", default="no_relation", type=str)
     parser.add_argument("--do_train", action='store_true', help="Whether to run training.")
+    parser.add_argument("--do_meta_train", action='store_true', help="Whether to run Meta-training.")
     parser.add_argument("--train_file", default=None, type=str, help="The path of the training data.")
     parser.add_argument("--train_mode", type=str, default='random_sorted', choices=['random', 'sorted', 'random_sorted'])
     parser.add_argument("--do_eval", action='store_true', help="Whether to run eval on the dev set.")
