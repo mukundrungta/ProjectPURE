@@ -21,6 +21,7 @@ from transformers.file_utils import PYTORCH_PRETRAINED_BERT_CACHE, WEIGHTS_NAME,
 from relation.models import BertForRelation, AlbertForRelation
 from transformers import AutoTokenizer
 from transformers import AdamW, get_linear_schedule_with_warmup
+from torch.optim import SGD
 
 from relation.utils import generate_relation_data, decode_sample_id, generate_relation_data_meta_learning
 from shared.const import task_rel_labels, task_ner_labels
@@ -291,6 +292,12 @@ def save_trained_model(output_dir, model, tokenizer):
     tokenizer.save_vocabulary(output_dir)
 
 def perform_meta_training(arg):
+    if 'albert' in args.model:
+        RelationModel = AlbertForRelation
+        args.add_new_tokens = True
+    else:
+        RelationModel = BertForRelation
+
     device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
     n_gpu = torch.cuda.device_count()
     train_dataset, train_examples_meta_train, train_examples_meta_test, train_nrel = generate_relation_data_meta_learning(args.train_file, use_gold=True, context_window=args.context_window)
@@ -329,7 +336,7 @@ def perform_meta_training(arg):
         special_tokens = {}
 
 
-    if args.do_eval and (args.do_train or not(args.eval_test)):
+    if args.do_eval and (args.do_train or args.do_meta_train or not(args.eval_test)):
         eval_dataset, eval_examples, eval_nrel = generate_relation_data(os.path.join(args.entity_output_dir, args.entity_predictions_dev), use_gold=args.eval_with_gold, context_window=args.context_window)
         eval_features = convert_examples_to_features(
             eval_examples, label2id, args.max_seq_length, tokenizer, special_tokens, unused_tokens=not(args.add_new_tokens))
@@ -427,7 +434,8 @@ def perform_meta_training(arg):
     nb_tr_steps = 0
 
     for epoch in range(int(args.num_train_epochs)):
-        inner_opt = AdamW(optimizer_grouped_parameters, lr=lr, correct_bias=not(args.bertadam)) #Change this as part of experiment, currently set the same as original otpimizer 
+        # inner_opt = AdamW(optimizer_grouped_parameters, lr=lr, correct_bias=not(args.bertadam)) #Change this as part of experiment, currently set the same as original otpimizer 
+        inner_opt = SGD(model.parameters(), lr=lr)
         model.train()
         logger.info("Start epoch #{} (lr = {})...".format(epoch, lr))
         for step, (batch_meta_train, batch_meta_test) in enumerate(zip(train_batches_meta_train, train_batches_meta_test)):
@@ -453,7 +461,11 @@ def perform_meta_training(arg):
                     meta_test_loss = meta_test_loss.mean()
 
                 meta_test_loss.backward() # accumulating the gradients using meta_test
-                
+
+                tr_loss += meta_test_loss.item()
+                nb_tr_examples += input_ids.size(0)
+                nb_tr_steps += 1
+               
             optimizer.step()
             scheduler.step()
             optimizer.zero_grad()
