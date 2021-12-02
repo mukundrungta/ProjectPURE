@@ -300,7 +300,7 @@ def perform_meta_training(arg):
 
     device = torch.device("cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu")
     n_gpu = torch.cuda.device_count()
-    train_dataset, train_examples_meta_train, train_examples_meta_test, train_nrel = generate_relation_data_meta_learning(args.train_file, use_gold=True, context_window=args.context_window)
+    train_dataset, train_examples_meta_train, train_examples_meta_test, train_nrel = generate_relation_data_meta_learning(args.train_file, use_gold=True, context_window=args.context_window, sampling=args.sampling_meta)
 
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
@@ -758,6 +758,9 @@ if __name__ == "__main__":
     
     parser.add_argument('--inner_learning_rate', default=1e-4, type=float,
                         help="The initial learning rate for inner optimizer Adam.")
+    
+    parser.add_argument("--sampling_meta", default="Random", type=str,
+                        help="Sampling strategy for composing meta-test examples")
 
     args = parser.parse_args()
     main(args)

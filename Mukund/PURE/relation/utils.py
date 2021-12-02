@@ -104,7 +104,7 @@ def generate_relation_data(entity_data, use_gold=False, context_window=0, is_mam
 
     return data, samples, nrel
     
-def generate_relation_data_meta_learning(entity_data, use_gold=False, context_window=0):
+def generate_relation_data_meta_learning(entity_data, use_gold=False, context_window=0, sampling = 'Random'):
     """
     Prepare data for the relation model
     If training: set use_gold = True
@@ -120,7 +120,7 @@ def generate_relation_data_meta_learning(entity_data, use_gold=False, context_wi
     for doc in data:
         for i, sent in enumerate(doc):
             sent_samples = []
-            sent_samples_test = []
+            sent_samples_test= []
 
             nner += len(sent.ner)
             nrel += len(sent.relations)
@@ -185,18 +185,32 @@ def generate_relation_data_meta_learning(entity_data, use_gold=False, context_wi
                     sample['nner'] = int(len(sent.ner))
                     sent_samples.append(sample)
 
+
                     #Test Sample
-                    
-                    x_rand = random.randrange(len(sent_ner))
-                    y_rand = random.randrange(len(sent_ner))
-                    while(x_rand != x and y_rand != y and x_rand != y_rand):
-                        x_rand = random.randrange(len(sent_ner))
-                        y_rand = random.randrange(len(sent_ner))
-                    
-                    sub_test = sent_ner[x_rand]
-                    obj_test = sent_ner[y_rand]
+                    if(sampling == 'Random'):
+                        #Sampling strategy : Random
+                        x_test = random.randrange(len(sent_ner))
+                        y_test = random.randrange(len(sent_ner))
+                        while(x_test != x and y_test != y and x_test != y_test):
+                            x_test = random.randrange(len(sent_ner))
+                            y_test = random.randrange(len(sent_ner))
+                        
+                    #Sampling strategy : Same entity type
+                    elif(sampling == 'NER'):
+                        flag = False
+                        #intialize with random elements
+                        x_test = random.randrange(len(sent_ner))
+                        y_test = random.randrange(len(sent_ner))
+                        for x_rand in range(len(sent_ner)):
+                            for y_rand in range(len(sent_ner)):
+                                if(not flag and sent_ner[x_rand].label == sub.label and sent_ner[y_rand].label == obj.label):
+                                    x_test = x_rand
+                                    y_test = y_rand
+                                    flag = True
+
+                    sub_test = sent_ner[x_test]
+                    obj_test = sent_ner[y_test]
                     label_test = gold_rel.get((sub_test.span, obj_test.span), 'no_relation')
-                    #Train Sample
                     sample_test = {}
                     sample_test['docid'] = doc._doc_key
                     sample_test['id'] = '%s@%d::(%d,%d)-(%d,%d)'%(doc._doc_key, sent.sentence_ix, sub_test.span.start_doc, sub_test.span.end_doc, obj_test.span.start_doc, obj_test.span.end_doc)
@@ -212,7 +226,6 @@ def generate_relation_data_meta_learning(entity_data, use_gold=False, context_wi
                     sample_test['sent_end'] = sent_end
                     sample_test['nner'] = int(len(sent.ner))
                     sent_samples_test.append(sample_test)
-
 
             max_sentsample = max(max_sentsample, len(sent_samples))
             samples_meta_train += sent_samples
