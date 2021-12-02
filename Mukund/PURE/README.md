@@ -121,6 +121,39 @@ rm ace05.zip
 rm data.zip
 ```
 
+### Meta-Training the relation model:
+You can use `run_relation.py` with `--do_meta_train` to train a relation model and with `--do_eval` to evaluate a relation model. A trianing command template is as follow:
+```bash
+python run_relation.py \
+  --task ace05 \
+  --do_meta_train --train_file DyGIE/data/ace05/json/train.json \
+  --do_eval --eval_test --eval_with_gold \
+  --model bert-base-uncased \
+  --do_lower_case \
+  --train_batch_size 1 \
+  --eval_batch_size 16 \
+  --eval_per_epoch 2 \
+  --learning_rate 2e-5 \
+  --inner_learning_rate 1e-4 \
+  --num_train_epochs 5 \
+  --context_window 0 \
+  --max_seq_length 128 \
+  --entity_output_dir DyGIE/data/ace05/json \
+  --entity_predictions_dev dev.json \
+  --entity_predictions_test test.json \
+  --output_dir ace05/trainedModel/
+```
+Aruguments:
+* `--eval_with_gold`: whether evaluate the model with the gold entities provided.
+* `--entity_output_dir`: the output directory of the entity model. The prediction files (`ent_pred_dev.json` or `ent_pred_test.json`) of the entity model should be in this directory.
+
+The prediction results will be stored in the file `predictions.json` in the folder `output_dir`, and the format will be almost the same with the output file from the entity model, except that there is one more field `"predicted_relations"` for each document.
+
+You can run the evaluation script to output the end-to-end performance  (`Ent`, `Rel`, and `Rel+`) of the predictions.
+```bash
+python run_eval.py --prediction_file {path to output_dir}/predictions.json
+```
+
 ## Quick Start
 The following commands can be used to download the preprocessed SciERC dataset and run our pre-trained models on ACE05.
 ```bash

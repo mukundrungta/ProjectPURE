@@ -21,7 +21,7 @@ from transformers.file_utils import PYTORCH_PRETRAINED_BERT_CACHE, WEIGHTS_NAME,
 from relation.models import BertForRelation, AlbertForRelation
 from transformers import AutoTokenizer
 from transformers import AdamW, get_linear_schedule_with_warmup
-from torch.optim import SGD
+from torch.optim import SGD, Adam
 
 from relation.utils import generate_relation_data, decode_sample_id, generate_relation_data_meta_learning
 from shared.const import task_rel_labels, task_ner_labels
@@ -434,8 +434,8 @@ def perform_meta_training(arg):
     nb_tr_steps = 0
 
     for epoch in range(int(args.num_train_epochs)):
-        # inner_opt = AdamW(optimizer_grouped_parameters, lr=lr, correct_bias=not(args.bertadam)) #Change this as part of experiment, currently set the same as original otpimizer 
-        inner_opt = SGD(model.parameters(), lr=lr)
+        inner_opt = Adam(optimizer_grouped_parameters, lr=args.inner_learning_rate) #Change this as part of experiment, currently set the same as original otpimizer 
+        # inner_opt = SGD(model.parameters(), lr=lr)
         model.train()
         logger.info("Start epoch #{} (lr = {})...".format(epoch, lr))
         for step, (batch_meta_train, batch_meta_test) in enumerate(zip(train_batches_meta_train, train_batches_meta_test)):
@@ -755,6 +755,9 @@ if __name__ == "__main__":
 
     parser.add_argument('--add_new_tokens', action='store_true', 
                         help="Whether to add new tokens as marker tokens instead of using [unusedX] tokens.")
+    
+    parser.add_argument('--inner_learning_rate', default=1e-4, type=float,
+                        help="The initial learning rate for inner optimizer Adam.")
 
     args = parser.parse_args()
     main(args)
