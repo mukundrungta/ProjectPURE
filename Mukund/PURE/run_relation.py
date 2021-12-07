@@ -434,8 +434,8 @@ def perform_meta_training(arg):
     nb_tr_steps = 0
 
     for epoch in range(int(args.num_train_epochs)):
-        inner_opt = Adam(optimizer_grouped_parameters, lr=args.inner_learning_rate) #Change this as part of experiment, currently set the same as original otpimizer 
-        # inner_opt = SGD(model.parameters(), lr=lr)
+        # inner_opt = Adam(optimizer_grouped_parameters, lr=args.inner_learning_rate) #Change this as part of experiment, currently set the same as original otpimizer 
+        inner_opt = SGD(optimizer_grouped_parameters, lr=args.inner_learning_rate)
         model.train()
         logger.info("Start epoch #{} (lr = {})...".format(epoch, lr))
         for step, (batch_meta_train, batch_meta_test) in enumerate(zip(train_batches_meta_train, train_batches_meta_test)):
