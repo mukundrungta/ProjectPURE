@@ -135,6 +135,77 @@ def generate_relation_data_meta_learning(entity_data, use_gold=False, context_wi
     max_sentsample_test = 0
     samples_meta_train = []
     samples_meta_test = []
+
+    ################################### Precompute indexes for entity pair type ###################################
+    ent_index_dict = {}
+    relation_list  = ['no_relation',
+'org:alternate_names',
+'org:city_of_branch',
+'org:country_of_branch',
+'org:dissolved',
+'org:founded_by',
+'org:founded',
+'org:member_of',
+'org:members',
+'org:number_of_employees/members',
+'org:political/religious_affiliation',
+'org:shareholders',
+'org:stateorprovince_of_branch',
+'org:top_members/employees',
+'org:website',
+'per:age',
+'per:cause_of_death',
+'per:charges',
+'per:children',
+'per:cities_of_residence',
+'per:city_of_birth',
+'per:city_of_death',
+'per:countries_of_residence',
+'per:country_of_birth',
+'per:country_of_death',
+'per:date_of_birth',
+'per:date_of_death',
+'per:employee_of',
+'per:identity',
+'per:origin',
+'per:other_family',
+'per:parents',
+'per:religion',
+'per:schools_attended',
+'per:siblings',
+'per:spouse',
+'per:stateorprovince_of_birth',
+'per:stateorprovince_of_death',
+'per:stateorprovinces_of_residence',
+'per:title']
+    for index_data, doc in enumerate(data):
+        for i, sent in enumerate(doc):
+
+            nner += len(sent.ner)
+            nrel += len(sent.relations)
+            if use_gold:
+                sent_ner = sent.ner
+            else:
+                sent_ner = sent.predicted_ner
+
+            relation = sent.relations[0]
+            sub_type = ""
+            obj_type = ""
+            for index in range(len(sent_ner)):
+                if(sent_ner[index].span.start_doc == relation.pair[0].start_doc and sent_ner[index].span.end_doc == relation.pair[0].end_doc):
+                    sub_type = sent_ner[index].label
+
+                if(sent_ner[index].span.start_doc == relation.pair[1].start_doc and sent_ner[index].span.end_doc == relation.pair[1].end_doc):
+                    obj_type = sent_ner[index].label
+            
+            for rel in relation_list:
+                if(rel != relation.label):
+                    ent_index_dict.setdefault((sub_type, obj_type, rel), []).append(index_data)
+
+    # print(ent_index_dict)
+    ###############################################################################################################
+
+
     for doc in data:
         for i, sent in enumerate(doc):
             sent_samples = []
@@ -206,67 +277,116 @@ def generate_relation_data_meta_learning(entity_data, use_gold=False, context_wi
             sample['nner'] = int(len(sent.ner))
             sent_samples.append(sample)
 
+            #################################### use the dictionary constructed to get the meta-test samples. ###################################
+            index_list = ent_index_dict[(sub_type, obj_type, relation.label)]
+            index_test = index_list[random.randint(0,len(index_list)-1)]
+            doc_test = data[index_test]
+            for i_test, sent_test in enumerate(doc_test):
+                relation_test = sent_test.relations[0]
+                sent_start_test = 0
+                sent_end_test = len(sent_test.text)
+                tokens_test = sent_test.text
 
+                if context_window > 0:
+                    add_left_test = (context_window-len(sent_test.text)) // 2
+                    add_right_test = (context_window-len(sent_test.text)) - add_left_test
+
+                    j_test = i_test - 1
+                    while j_test >= 0 and add_left_test > 0:
+                        context_to_add_test = doc_test[j_test].text[-add_left_test:]
+                        tokens_test = context_to_add_test + tokens_test
+                        add_left_test -= len(context_to_add_test)
+                        sent_start_test += len(context_to_add_test)
+                        sent_end_test += len(context_to_add_test)
+                        j_test -= 1
+
+                    j_test = i_test + 1
+                    while j_test < len(doc_test) and add_right_test > 0:
+                        context_to_add_test = doc_test[j_test].text[:add_right_test]
+                        tokens_test = tokens_test + context_to_add_test
+                        add_right_test -= len(context_to_add_test)
+                        j_test += 1
+
+                sample_test = {}
+                sample_test['docid'] = doc_test._doc_key
+                sample_test['id'] = '%s@%d::(%d,%d)-(%d,%d)'%(doc_test._doc_key, sent_test.sentence_ix, relation_test.pair[0].start_doc, relation_test.pair[0].end_doc, relation_test.pair[1].start_doc, relation_test.pair[1].end_doc)
+                sample_test['relation'] = relation_test.label
+                sample_test['subj_start'] = relation_test.pair[0].start_doc
+                sample_test['subj_end'] = relation_test.pair[0].end_doc
+                sample_test['subj_type'] = sub_type # relation.pair[0].text
+                sample_test['obj_start'] = relation_test.pair[1].start_doc
+                sample_test['obj_end'] = relation_test.pair[1].end_doc
+                sample_test['obj_type'] = obj_type # relation.pair[1].text
+                sample_test['token'] = tokens_test
+                sample_test['sent_start'] = sent_start_test
+                sample_test['sent_end'] = sent_end_test
+                sample_test['nner'] = int(len(sent_test.ner))
+                sent_samples_test.append(sample_test)
+            #####################################################################################################################################
+
+
+            #################################### iterate over all samples in training to get the meta-test sample ###################################
             #from all training examples, select one example such that entity type pair matches with the meta-train example but relation is different
-            for doc_test in data:
-                for i_test, sent_test in enumerate(doc_test):
-                    if use_gold:
-                        sent_ner_test = sent_test.ner
-                    else:
-                        sent_ner_test = sent_test.predicted_ner
+            # for doc_test in data:
+            #     for i_test, sent_test in enumerate(doc_test):
+            #         if use_gold:
+            #             sent_ner_test = sent_test.ner
+            #         else:
+            #             sent_ner_test = sent_test.predicted_ner
                     
-                    #get subject and object type of the current example.
-                    relation_test = sent_test.relations[0] #only one relation per sentence
-                    sub_type_test = ""
-                    obj_type_test = ""
-                    for index in range(len(sent_ner_test)):
-                        if(sent_ner_test[index].span.start_doc == relation_test.pair[0].start_doc and sent_ner_test[index].span.end_doc == relation_test.pair[0].end_doc):
-                            sub_type_test = sent_ner_test[index].label
+            #         #get subject and object type of the current example.
+            #         relation_test = sent_test.relations[0] #only one relation per sentence
+            #         sub_type_test = ""
+            #         obj_type_test = ""
+            #         for index in range(len(sent_ner_test)):
+            #             if(sent_ner_test[index].span.start_doc == relation_test.pair[0].start_doc and sent_ner_test[index].span.end_doc == relation_test.pair[0].end_doc):
+            #                 sub_type_test = sent_ner_test[index].label
 
-                        if(sent_ner_test[index].span.start_doc == relation_test.pair[1].start_doc and sent_ner_test[index].span.end_doc == relation_test.pair[1].end_doc):
-                            obj_type_test = sent_ner_test[index].label
+            #             if(sent_ner_test[index].span.start_doc == relation_test.pair[1].start_doc and sent_ner_test[index].span.end_doc == relation_test.pair[1].end_doc):
+            #                 obj_type_test = sent_ner_test[index].label
                     
-                    sent_start_test = 0
-                    sent_end_test = len(sent_test.text)
-                    tokens_test = sent_test.text
+            #         sent_start_test = 0
+            #         sent_end_test = len(sent_test.text)
+            #         tokens_test = sent_test.text
 
-                    if context_window > 0:
-                        add_left_test = (context_window-len(sent_test.text)) // 2
-                        add_right_test = (context_window-len(sent_test.text)) - add_left_test
+            #         if context_window > 0:
+            #             add_left_test = (context_window-len(sent_test.text)) // 2
+            #             add_right_test = (context_window-len(sent_test.text)) - add_left_test
 
-                        j_test = i_test - 1
-                        while j_test >= 0 and add_left_test > 0:
-                            context_to_add_test = doc_test[j_test].text[-add_left_test:]
-                            tokens_test = context_to_add_test + tokens_test
-                            add_left_test -= len(context_to_add_test)
-                            sent_start_test += len(context_to_add_test)
-                            sent_end_test += len(context_to_add_test)
-                            j_test -= 1
+            #             j_test = i_test - 1
+            #             while j_test >= 0 and add_left_test > 0:
+            #                 context_to_add_test = doc_test[j_test].text[-add_left_test:]
+            #                 tokens_test = context_to_add_test + tokens_test
+            #                 add_left_test -= len(context_to_add_test)
+            #                 sent_start_test += len(context_to_add_test)
+            #                 sent_end_test += len(context_to_add_test)
+            #                 j_test -= 1
 
-                        j_test = i_test + 1
-                        while j_test < len(doc_test) and add_right_test > 0:
-                            context_to_add_test = doc_test[j_test].text[:add_right_test]
-                            tokens_test = tokens_test + context_to_add_test
-                            add_right_test -= len(context_to_add_test)
-                            j_test += 1
+            #             j_test = i_test + 1
+            #             while j_test < len(doc_test) and add_right_test > 0:
+            #                 context_to_add_test = doc_test[j_test].text[:add_right_test]
+            #                 tokens_test = tokens_test + context_to_add_test
+            #                 add_right_test -= len(context_to_add_test)
+            #                 j_test += 1
                         
-                    if(sub_type == sub_type_test and obj_type == obj_type_test and relation.label != relation_test.label):
-                        sample_test = {}
-                        sample_test['docid'] = doc_test._doc_key
-                        sample_test['id'] = '%s@%d::(%d,%d)-(%d,%d)'%(doc_test._doc_key, sent_test.sentence_ix, relation_test.pair[0].start_doc, relation_test.pair[0].end_doc, relation_test.pair[1].start_doc, relation_test.pair[1].end_doc)
-                        sample_test['relation'] = relation_test.label
-                        sample_test['subj_start'] = relation_test.pair[0].start_doc
-                        sample_test['subj_end'] = relation_test.pair[0].end_doc
-                        sample_test['subj_type'] = sub_type_test # relation.pair[0].text
-                        sample_test['obj_start'] = relation_test.pair[1].start_doc
-                        sample_test['obj_end'] = relation_test.pair[1].end_doc
-                        sample_test['obj_type'] = obj_type_test # relation.pair[1].text
-                        sample_test['token'] = tokens_test
-                        sample_test['sent_start'] = sent_start_test
-                        sample_test['sent_end'] = sent_end_test
-                        sample_test['nner'] = int(len(sent_test.ner))
-                        sent_samples_test.append(sample_test)
-                        break # currently considering only example per meta-train example. Later we can rank these meta-test examples and select most confusing one from the list
+            #         if(sub_type == sub_type_test and obj_type == obj_type_test and relation.label != relation_test.label):
+            #             sample_test = {}
+            #             sample_test['docid'] = doc_test._doc_key
+            #             sample_test['id'] = '%s@%d::(%d,%d)-(%d,%d)'%(doc_test._doc_key, sent_test.sentence_ix, relation_test.pair[0].start_doc, relation_test.pair[0].end_doc, relation_test.pair[1].start_doc, relation_test.pair[1].end_doc)
+            #             sample_test['relation'] = relation_test.label
+            #             sample_test['subj_start'] = relation_test.pair[0].start_doc
+            #             sample_test['subj_end'] = relation_test.pair[0].end_doc
+            #             sample_test['subj_type'] = sub_type_test # relation.pair[0].text
+            #             sample_test['obj_start'] = relation_test.pair[1].start_doc
+            #             sample_test['obj_end'] = relation_test.pair[1].end_doc
+            #             sample_test['obj_type'] = obj_type_test # relation.pair[1].text
+            #             sample_test['token'] = tokens_test
+            #             sample_test['sent_start'] = sent_start_test
+            #             sample_test['sent_end'] = sent_end_test
+            #             sample_test['nner'] = int(len(sent_test.ner))
+            #             sent_samples_test.append(sample_test)
+            #             break # currently considering only example per meta-train example. Later we can rank these meta-test examples and select most confusing one from the list
+            #####################################################################################################################################
 
             
             # for x in range(len(sent_ner)):
