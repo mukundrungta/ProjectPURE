@@ -88,7 +88,7 @@ def generate_relation_data(entity_data, use_gold=False, context_window=0, is_mam
             sample['sent_end'] = sent_end
             sample['nner'] = int(len(sent.ner))
 
-            sent_samples.append(sample)
+            samples.append(sample)
 
             # for x in range(len(sent_ner)):
             #     for y in range(len(sent_ner)):
@@ -465,12 +465,12 @@ def generate_relation_data_meta_learning(entity_data, use_gold=False, context_wi
     tot_test = len(samples_meta_test)
 
     #select a subset of the training samples to see what is the issue with the learning
-    # samples_meta_train = samples_meta_train[:5000]
-    # samples_meta_test = samples_meta_test[:5000]
+    samples_meta_train = samples_meta_train[:5000]
+    samples_meta_test = samples_meta_test[:5000]
 
     # samples_meta_test = samples_meta_train
 
     logger.info('#Train-samples: %d, #Test-samples: %d, max #Train-sent.samples: %d, max #Test-sent.samples: %d '%(tot_train, tot_test, max_sentsample, max_sentsample_test))
     #swap meta-train with meta-test
-    return data, samples_meta_test, samples_meta_train, nrel
-    # return data, samples_meta_train, samples_meta_test, nrel
+    # return data, samples_meta_test, samples_meta_train, nrel
+    return data, samples_meta_train, samples_meta_test, nrel

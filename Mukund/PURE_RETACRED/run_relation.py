@@ -460,9 +460,13 @@ def perform_meta_training(arg):
                 if n_gpu > 1:
                     meta_test_loss = meta_test_loss.mean()
 
-                meta_test_loss.backward() # accumulating the gradients using meta_test
+                total_loss = meta_train_loss + meta_test_loss
+                total_loss.backward() # total loss = meta_train  + meta-test
+                tr_loss += total_loss.item()
 
-                tr_loss += meta_test_loss.item()
+                # meta_test_loss.backward() # accumulating the gradients using meta_test
+
+                # tr_loss += meta_test_loss.item()
                 nb_tr_examples += input_ids.size(0)
                 nb_tr_steps += 1
                
