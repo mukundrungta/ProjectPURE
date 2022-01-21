@@ -452,6 +452,11 @@ def perform_meta_training(arg):
                 if n_gpu > 1:
                     meta_train_loss = meta_train_loss.mean()
                 
+                #get meta-train & meta-test beforehand to check the decrease in loss function
+                meta_train_loss_exp_before = meta_train_loss
+                input_ids_exp, input_mask_exp, segment_ids_exp, label_ids_exp, sub_idx_exp, obj_idx_exp = batch_meta_test
+                meta_test_loss_exp_before = fast_model(input_ids_exp, segment_ids_exp, input_mask_exp, label_ids_exp, sub_idx_exp, obj_idx_exp)
+                
                 diffopt.step(meta_train_loss) # computing temporary params on meta-train set
 
                 input_ids, input_mask, segment_ids, label_ids, sub_idx, obj_idx = batch_meta_test
@@ -474,6 +479,15 @@ def perform_meta_training(arg):
             scheduler.step()
             optimizer.zero_grad()
             global_step += 1
+
+            #compute the meta-train and meta-test loss after the update of parameters is done
+            input_ids, input_mask, segment_ids, label_ids, sub_idx, obj_idx = batch_meta_train
+            meta_train_loss_exp_after = model(input_ids, segment_ids, input_mask, label_ids, sub_idx, obj_idx)
+            input_ids_exp, input_mask_exp, segment_ids_exp, label_ids_exp, sub_idx_exp, obj_idx_exp = batch_meta_test
+            meta_test_loss_exp_after = model(input_ids_exp, segment_ids_exp, input_mask_exp, label_ids_exp, sub_idx_exp, obj_idx_exp)
+            print("Meta-train Before : " + str(meta_train_loss_exp_before) + " , After : " +str(meta_train_loss_exp_after))
+            print("Meta-test Before : " + str(meta_test_loss_exp_before) + " , After : " +str(meta_test_loss_exp_after))
+
             if (step + 1) % eval_step == 0:
                 logger.info('Epoch: {}, Step: {} / {}, used_time = {:.2f}s, loss = {:.6f}'.format(
                             epoch, step + 1, len(train_batches_meta_train),
