@@ -23,6 +23,9 @@ from transformers import AutoTokenizer
 from transformers import AdamW, get_linear_schedule_with_warmup
 from torch.optim import SGD, Adam
 
+from torch.utils.tensorboard import SummaryWriter
+
+
 from relation.utils import generate_relation_data, decode_sample_id, generate_relation_data_meta_learning
 from shared.const import task_rel_labels, task_ner_labels
 
@@ -35,6 +38,9 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s
                     datefmt='%m/%d/%Y %H:%M:%S',
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+writer = SummaryWriter()
+
 
 class InputFeatures(object):
     """A single set of features of data."""
@@ -487,6 +493,11 @@ def perform_meta_training(arg):
             meta_test_loss_exp_after = model(input_ids_exp, segment_ids_exp, input_mask_exp, label_ids_exp, sub_idx_exp, obj_idx_exp)
             print("Meta-train Before : " + str(meta_train_loss_exp_before) + " , After : " +str(meta_train_loss_exp_after))
             print("Meta-test Before : " + str(meta_test_loss_exp_before) + " , After : " +str(meta_test_loss_exp_after))
+            writer.add_scalar('Meta-train Before', meta_train_loss_exp_before.item(), epoch*len(train_batches_meta_train) + step)
+            writer.add_scalar('Meta-train After', meta_train_loss_exp_after.item(), epoch*len(train_batches_meta_train) + step)
+            writer.add_scalar('Meta-test Before', meta_test_loss_exp_before.item(), epoch*len(train_batches_meta_train) + step)
+            writer.add_scalar('Meta-test After', meta_test_loss_exp_after.item(), epoch*len(train_batches_meta_train) + step)
+
 
             if (step + 1) % eval_step == 0:
                 logger.info('Epoch: {}, Step: {} / {}, used_time = {:.2f}s, loss = {:.6f}'.format(
@@ -691,6 +702,9 @@ def main(args):
     #Perform Meta-learning
     if args.do_meta_train:
         perform_meta_training(args)
+    
+    #close summary_writer
+    writer.close()
 
     evaluation_results = {}
     if args.do_eval:
