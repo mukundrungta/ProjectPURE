@@ -276,8 +276,9 @@ def generate_relation_data_meta_learning(entity_data, use_gold=False, context_wi
             sample['sent_end'] = sent_end
             sample['nner'] = int(len(sent.ner))
             sent_samples.append(sample)
-
-            #################################### use the dictionary constructed to get the meta-test samples. ###################################
+            
+            '''
+            #################################### use the dictionary constructed to get the meta-test samples ONE PER META_TRAIN. ###################################
             index_list = ent_index_dict[(sub_type, obj_type, relation.label)]
             index_test = index_list[random.randint(0,len(index_list)-1)]
             doc_test = data[index_test]
@@ -322,6 +323,55 @@ def generate_relation_data_meta_learning(entity_data, use_gold=False, context_wi
                 sample_test['sent_end'] = sent_end_test
                 sample_test['nner'] = int(len(sent_test.ner))
                 sent_samples_test.append(sample_test)
+            #####################################################################################################################################
+            '''
+
+            #################################### use the dictionary constructed to get the meta-test samples FOUR PER META_TRAIN. ###################################
+            index_list = ent_index_dict[(sub_type, obj_type, relation.label)]
+            index_test_list = random.sample(index_list, 4) # index_list[random.randint(0,len(index_list)-1)]
+            for index_test in index_test_list:
+                doc_test = data[index_test]
+                for i_test, sent_test in enumerate(doc_test):
+                    relation_test = sent_test.relations[0]
+                    sent_start_test = 0
+                    sent_end_test = len(sent_test.text)
+                    tokens_test = sent_test.text
+
+                    if context_window > 0:
+                        add_left_test = (context_window-len(sent_test.text)) // 2
+                        add_right_test = (context_window-len(sent_test.text)) - add_left_test
+
+                        j_test = i_test - 1
+                        while j_test >= 0 and add_left_test > 0:
+                            context_to_add_test = doc_test[j_test].text[-add_left_test:]
+                            tokens_test = context_to_add_test + tokens_test
+                            add_left_test -= len(context_to_add_test)
+                            sent_start_test += len(context_to_add_test)
+                            sent_end_test += len(context_to_add_test)
+                            j_test -= 1
+
+                        j_test = i_test + 1
+                        while j_test < len(doc_test) and add_right_test > 0:
+                            context_to_add_test = doc_test[j_test].text[:add_right_test]
+                            tokens_test = tokens_test + context_to_add_test
+                            add_right_test -= len(context_to_add_test)
+                            j_test += 1
+
+                    sample_test = {}
+                    sample_test['docid'] = doc_test._doc_key
+                    sample_test['id'] = '%s@%d::(%d,%d)-(%d,%d)'%(doc_test._doc_key, sent_test.sentence_ix, relation_test.pair[0].start_doc, relation_test.pair[0].end_doc, relation_test.pair[1].start_doc, relation_test.pair[1].end_doc)
+                    sample_test['relation'] = relation_test.label
+                    sample_test['subj_start'] = relation_test.pair[0].start_doc
+                    sample_test['subj_end'] = relation_test.pair[0].end_doc
+                    sample_test['subj_type'] = sub_type # relation.pair[0].text
+                    sample_test['obj_start'] = relation_test.pair[1].start_doc
+                    sample_test['obj_end'] = relation_test.pair[1].end_doc
+                    sample_test['obj_type'] = obj_type # relation.pair[1].text
+                    sample_test['token'] = tokens_test
+                    sample_test['sent_start'] = sent_start_test
+                    sample_test['sent_end'] = sent_end_test
+                    sample_test['nner'] = int(len(sent_test.ner))
+                    sent_samples_test.append(sample_test)
             #####################################################################################################################################
 
 
