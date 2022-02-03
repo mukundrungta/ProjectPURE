@@ -234,7 +234,8 @@ class RETACREDProcessor(Processor):
 
             #################################### use the dictionary constructed to get the meta-test samples FOUR PER META_TRAIN. ###################################
             index_list = ent_index_dict[(sub_type, obj_type, relation)]
-            index_test = random.sample(index_list, 1) # index_list[random.randint(0,len(index_list)-1)]
+            index_test = index_list[random.randint(0,len(index_list)-1)]
+            # index_test = random.sample(index_list, 1) # index_list[random.randint(0,len(index_list)-1)]
             data_test = data[index_test]
             ss_test, se_test = data_test['subj_start'], data_test['subj_end']
             os_test, oe_test = data_test['obj_start'], data_test['obj_end']
@@ -254,4 +255,6 @@ class RETACREDProcessor(Processor):
             features_meta_test.append(feature_test)
             ################################################################################################################################################
         
+        print("Number of train features = " +str(len(features_meta_train)))
+        print("Number of test features = " +str(len(features_meta_test)))
         return features_meta_train, features_meta_test

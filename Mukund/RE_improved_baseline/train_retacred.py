@@ -14,6 +14,7 @@ from model import REModel
 from torch.cuda.amp import GradScaler
 import wandb
 import higher
+from torch.optim import SGD, Adam
 
 
 def train(args, model, train_features, benchmarks):
@@ -69,7 +70,7 @@ def train_meta_learning(args, model, train_features_meta_train, train_features_m
 
     scaler = GradScaler()
     optimizer = AdamW(model.parameters(), lr=args.learning_rate, eps=args.adam_epsilon)
-    inner_opt = AdamW(model.parameters(), lr=args.learning_rate, eps=args.adam_epsilon)
+    inner_opt = SGD(model.parameters(), lr=args.learning_rate)
     scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_steps)
     print('Total steps: {}'.format(total_steps))
     print('Warmup steps: {}'.format(warmup_steps))
