@@ -120,6 +120,8 @@ def train_meta_learning(args, model, train_features_meta_train, train_features_m
                 scaler.update()
                 scheduler.step()
                 model.zero_grad()
+                wandb.log({'meta_train_loss': meta_train_loss.item()}, step=num_steps)
+                wandb.log({'meta_test_loss': meta_test_loss.item()}, step=num_steps)
                 wandb.log({'loss': total_loss.item()}, step=num_steps)
 
             if (num_steps % args.evaluation_steps == 0 and step % args.gradient_accumulation_steps == 0):
@@ -226,12 +228,14 @@ def main():
     train_file = os.path.join(args.data_dir, "train.json")
     dev_file = os.path.join(args.data_dir, "dev.json")
     test_file = os.path.join(args.data_dir, "test.json")
+    challenge_test_file = os.path.join(args.data_dir, "challenge_test.json")
 
     processor = RETACREDProcessor(args, tokenizer)
     train_features = processor.read(train_file)
     train_features_meta_train, train_features_meta_test = processor.read_meta_learning(train_file)
     dev_features = processor.read(dev_file)
     test_features = processor.read(test_file)
+    challenge_test_features = processor.read(challenge_test_file)
 
     if len(processor.new_tokens) > 0:
         model.encoder.resize_token_embeddings(len(tokenizer))
@@ -239,6 +243,7 @@ def main():
     benchmarks = (
         ("dev", dev_features),
         ("test", test_features),
+        ("challenge_test", challenge_test_features),
     )
 
     # train(args, model, train_features, benchmarks)
