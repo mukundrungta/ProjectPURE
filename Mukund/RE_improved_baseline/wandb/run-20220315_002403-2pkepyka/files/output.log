@@ -1,0 +1,210 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:39<00:00, 426.60it/s]
+  3%|██▍                                                                                   | 648/22631 [00:01<00:53, 408.67it/s]
+Number of meta-train features = 8063
+Number of meta-test features = 8063
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:52<00:00, 434.87it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:34<00:00, 447.56it/s]
+
+
+
+
+
+
+
+
+
+ 94%|██████████████████████████████████████████████████████████████████████████████▊     | 10180/10844 [00:19<00:01, 510.18it/s]
+Total steps: 18765
+100%|████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:20<00:00, 527.20it/s]
+0it [00:00, ?it/s]/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py:155: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+288it [01:25,  3.45it/s]Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 296, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 292, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 107, in train_meta_learning
+    diffopt.step(meta_train_loss) # computing temporary params on meta-train set
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 233, in step
+    allow_unused=True  # boo
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 236, in grad
+    inputs, allow_unused, accumulate_grad=False)
+RuntimeError: CUDA out of memory. Tried to allocate 28.00 MiB (GPU 0; 10.76 GiB total capacity; 8.87 GiB already allocated; 11.44 MiB free; 9.59 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 296, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 292, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 107, in train_meta_learning
+    diffopt.step(meta_train_loss) # computing temporary params on meta-train set
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 233, in step
+    allow_unused=True  # boo
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 236, in grad
+    inputs, allow_unused, accumulate_grad=False)
+RuntimeError: CUDA out of memory. Tried to allocate 28.00 MiB (GPU 0; 10.76 GiB total capacity; 8.87 GiB already allocated; 11.44 MiB free; 9.59 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+288it [01:26,  3.34it/s]

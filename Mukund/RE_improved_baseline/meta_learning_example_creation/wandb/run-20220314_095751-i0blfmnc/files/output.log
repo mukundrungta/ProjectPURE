@@ -1,0 +1,188 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:38<00:00, 429.69it/s]
+****************************** Starting preprocessing of the dataset ******************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 61294/61294 [02:49<00:00, 360.59it/s]
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 61286
+****************************** Preprocessing completed ******************************
+Started Computing representation for the amb + hard examples
+  0%|                                                                                                                  | 0/61294 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 325, in <module>
+    main()
+  File "train_tacred.py", line 317, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 175, in train
+    distance_list.append(eucledian_distance)
+AttributeError: 'numpy.ndarray' object has no attribute 'append'
+Traceback (most recent call last):
+  File "train_tacred.py", line 325, in <module>
+    main()
+  File "train_tacred.py", line 317, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 175, in train
+    distance_list.append(eucledian_distance)
+AttributeError: 'numpy.ndarray' object has no attribute 'append'
+Computed representation for the amb + hard examples beforehand

@@ -1,0 +1,47 @@
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:02<00:00, 409.28it/s]
+Traceback (most recent call last):
+  File "train_retacred.py", line 254, in <module>
+    main()
+  File "train_retacred.py", line 235, in main
+    # train_features_meta_train, train_features_meta_test = processor.read_meta_learning(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro.py", line 224, in read_meta_learning
+    input_ids, new_ss, new_os = self.tokenize(tokens, d['subj_type'], d['obj_type'], ss, se, os, oe)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro.py", line 67, in tokenize
+    tokens_wordpiece = self.tokenizer.tokenize(token)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 700, in tokenize
+    tokenized_text = split_on_tokens(added_tokens, text)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 697, in split_on_tokens
+    else [token] for token in tokenized_text)))
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 697, in <genexpr>
+    else [token] for token in tokenized_text)))
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_bert.py", line 182, in _tokenize
+    for token in self.basic_tokenizer.tokenize(text, never_split=self.all_special_tokens):
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 1305, in all_special_tokens
+    set_attr = self.special_tokens_map
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 1294, in special_tokens_map
+    attr_value = getattr(self, "_" + attr)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train_retacred.py", line 254, in <module>
+    main()
+  File "train_retacred.py", line 235, in main
+    # train_features_meta_train, train_features_meta_test = processor.read_meta_learning(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro.py", line 224, in read_meta_learning
+    input_ids, new_ss, new_os = self.tokenize(tokens, d['subj_type'], d['obj_type'], ss, se, os, oe)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro.py", line 67, in tokenize
+    tokens_wordpiece = self.tokenizer.tokenize(token)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 700, in tokenize
+    tokenized_text = split_on_tokens(added_tokens, text)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 697, in split_on_tokens
+    else [token] for token in tokenized_text)))
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 697, in <genexpr>
+    else [token] for token in tokenized_text)))
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_bert.py", line 182, in _tokenize
+    for token in self.basic_tokenizer.tokenize(text, never_split=self.all_special_tokens):
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 1305, in all_special_tokens
+    set_attr = self.special_tokens_map
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/tokenization_utils.py", line 1294, in special_tokens_map
+    attr_value = getattr(self, "_" + attr)
+KeyboardInterrupt

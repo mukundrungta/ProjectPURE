@@ -1,0 +1,28 @@
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 496.95it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 456.44it/s]
+  0%|                                                                                                                       | 0/32 [00:00<?, ?it/s]
+Total steps: 10
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 418.05it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 537.21it/s]
+  0%|                                                                                                                        | 0/2 [00:00<?, ?it/s]/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py:155: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  7.62it/s]
+Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 237, in <module>
+    main()
+  File "train_tacred_datamap.py", line 233, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred_datamap.py", line 74, in train
+    challenge_features = benchmarks[tag_challenge]
+TypeError: tuple indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 237, in <module>
+    main()
+  File "train_tacred_datamap.py", line 233, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred_datamap.py", line 74, in train
+    challenge_features = benchmarks[tag_challenge]
+TypeError: tuple indices must be integers or slices, not str

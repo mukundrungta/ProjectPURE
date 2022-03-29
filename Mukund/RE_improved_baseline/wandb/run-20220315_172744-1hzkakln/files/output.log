@@ -1,0 +1,436 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:57<00:00, 384.73it/s]
+Number of meta-train features = 8063
+Number of meta-test features = 8063
+Number of normal features = 68124
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:54<00:00, 416.64it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:39<00:00, 397.51it/s]
+
+
+
+
+
+
+
+
+
+
+
+ 97%|██████████████████████████████████████████████████████████████████████████████████████████████████▎  | 10557/10844 [00:23<00:00, 331.28it/s]
+Total steps: 42570
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:23<00:00, 452.54it/s]
+  0%|                                                                                                                   | 0/4257 [00:00<?, ?it/s]/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py:155: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 59%|█████████████████████████████████████████████████████████████                                           | 2499/4257 [03:40<02:17, 12.78it/s]
+{'dev_f1': 56.00838135149293}
+{'test_f1': 56.401200776973326}
+{'challenge_test_f1': 30.498533724340177}
+ACCURACY:   60.55%
+POSITIVE ACCURACY:   25.88%
+NEGATIVE ACCURACY:   88.30%
+-------------------------------------------------------------------
+TRUE POSITIVE:   0.115 		 (NUMBER:   1247)
+FALSE POSITIVE:   0.065 		 (NUMBER:   705)
+TRUE NEGATIVE:   0.491 		 (NUMBER:   5320)
+FALSE NEGATIVE:   0.329 		 (NUMBER:   3572)
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 4257/4257 [06:30<00:00, 10.89it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 17%|██████████████████▎                                                                                      | 742/4257 [01:10<04:32, 12.89it/s]
+{'dev_f1': 63.70742063109138}
+{'test_f1': 65.04091127867801}
+
+ 18%|██████████████████▏                                                                                    | 753/4257 [01:49<2:27:30,  2.53s/it]
+ACCURACY:   66.00%
+POSITIVE ACCURACY:   58.66%
+NEGATIVE ACCURACY:   71.88%
+-------------------------------------------------------------------
+TRUE POSITIVE:   0.261 		 (NUMBER:   2827)
+FALSE POSITIVE:   0.156 		 (NUMBER:   1694)
+TRUE NEGATIVE:   0.399 		 (NUMBER:   4331)
+FALSE NEGATIVE:   0.184 		 (NUMBER:   1992)
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 31%|███████████████████████████████▉                                                                        | 1309/4257 [02:33<04:12, 11.68it/s]Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 299, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 295, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 96, in train_meta_learning
+    scaler.scale(loss).backward()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_tensor.py", line 307, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 156, in backward
+    allow_unreachable=True, accumulate_grad=True)  # allow_unreachable flag
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 299, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 295, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 96, in train_meta_learning
+    scaler.scale(loss).backward()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_tensor.py", line 307, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 156, in backward
+    allow_unreachable=True, accumulate_grad=True)  # allow_unreachable flag
+KeyboardInterrupt
+ 31%|███████████████████████████████▉                                                                        | 1309/4257 [02:33<05:44,  8.55it/s]

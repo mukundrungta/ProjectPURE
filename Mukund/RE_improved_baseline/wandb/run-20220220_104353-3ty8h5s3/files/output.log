@@ -1,0 +1,288 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:51<00:00, 398.27it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:54<00:00, 417.99it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:36<00:00, 429.13it/s]
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:21<00:00, 509.44it/s]
+  0%|                                                                                                                               | 0/4257 [00:00<?, ?it/s]/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/optimization.py:146: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+  0%|▏                                                                                                                      | 6/4257 [00:00<07:16,  9.74it/s]
+Total steps: 21285
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 59%|████████████████████████████████████████████████████████████████████                                                | 2499/4257 [04:00<02:36, 11.24it/s]
+{'dev_f1': 55.56855653653866}
+{'test_f1': 56.166365280289334}
+ 59%|████████████████████████████████████████████████████████████████████                                                | 2499/4257 [04:00<02:36, 11.24it/s]Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 184, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 57, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_tacred.py", line 91, in evaluate
+    accuracy_challenge(keys, preds)
+NameError: name 'accuracy_challenge' is not defined
+Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 184, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 57, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_tacred.py", line 91, in evaluate
+    accuracy_challenge(keys, preds)
+NameError: name 'accuracy_challenge' is not defined
+ 59%|████████████████████████████████████████████████████████████████████                                                | 2499/4257 [04:40<03:17,  8.91it/s]

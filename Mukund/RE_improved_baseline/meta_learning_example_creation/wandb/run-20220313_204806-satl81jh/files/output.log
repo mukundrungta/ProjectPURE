@@ -1,0 +1,108 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:42<00:00, 418.34it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 229.71it/s]
+  0%|                                                                                                                     | 0/10 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 312, in <module>
+    main()
+  File "train_tacred.py", line 306, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 164, in train
+    easy_model_output = easy_model_output.cpu().data.numpy()
+AttributeError: 'numpy.ndarray' object has no attribute 'cpu'
+Traceback (most recent call last):
+  File "train_tacred.py", line 312, in <module>
+    main()
+  File "train_tacred.py", line 306, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 164, in train
+    easy_model_output = easy_model_output.cpu().data.numpy()
+AttributeError: 'numpy.ndarray' object has no attribute 'cpu'
+****************************** Starting preprocessing of the dataset ******************************
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 10
+****************************** Preprocessing completed ******************************
+Easy type = <class 'torch.Tensor'>
+Meta Test type = <class 'torch.Tensor'>
+Easy type = <class 'numpy.ndarray'>
+Meta Test type = <class 'torch.Tensor'>

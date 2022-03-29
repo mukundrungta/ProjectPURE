@@ -7,12 +7,14 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader
 from transformers import AutoConfig, AutoTokenizer
 from transformers.optimization import AdamW, get_linear_schedule_with_warmup
-from utils import set_seed, collate_fn
+from utils import set_seed, collate_fn, collate_fn_token
 from prepro import TACREDProcessor
 from evaluation import get_f1
-from model import REModel
+from evaluation import accuracy_challenge_tacred
+from model import REModel, REModelToken
 from torch.cuda.amp import GradScaler
 import wandb
+from prepro_additional_token import TACREDProcessorToken
 
 
 def train(args, model, train_features, benchmarks):
@@ -86,6 +88,85 @@ def evaluate(args, model, features, tag='dev'):
         tag + "_f1": max_f1 * 100,
     }
     print(output)
+    if(tag == 'challenge_test'):
+        accuracy_challenge_tacred(keys, preds)
+    return max_f1, output
+
+def train_token(args, model, train_features, benchmarks):
+    train_dataloader = DataLoader(train_features, batch_size=args.train_batch_size, shuffle=True, collate_fn=collate_fn_token, drop_last=True)
+    total_steps = int(len(train_dataloader) * args.num_train_epochs // args.gradient_accumulation_steps)
+    warmup_steps = int(total_steps * args.warmup_ratio)
+
+    scaler = GradScaler()
+    optimizer = AdamW(model.parameters(), lr=args.learning_rate, eps=args.adam_epsilon)
+    scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_steps)
+    print('Total steps: {}'.format(total_steps))
+    print('Warmup steps: {}'.format(warmup_steps))
+
+    num_steps = 0
+    for epoch in range(int(args.num_train_epochs)):
+        model.zero_grad()
+        for step, batch in enumerate(tqdm(train_dataloader)):
+            model.train()
+            inputs = {'input_ids': batch[0].to(args.device),
+                      'attention_mask': batch[1].to(args.device),
+                      'labels': batch[2].to(args.device),
+                      'ss': batch[3].to(args.device),
+                      'os': batch[4].to(args.device),
+                      'tag': batch[5].to(args.device),
+                      }
+            outputs = model(**inputs)
+            loss = outputs[0] / args.gradient_accumulation_steps
+            scaler.scale(loss).backward()
+            if step % args.gradient_accumulation_steps == 0:
+                num_steps += 1
+                if args.max_grad_norm > 0:
+                    scaler.unscale_(optimizer)
+                    torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_grad_norm)
+                scaler.step(optimizer)
+                scaler.update()
+                scheduler.step()
+                model.zero_grad()
+                wandb.log({'loss': loss.item()}, step=num_steps)
+
+            if (num_steps % args.evaluation_steps == 0 and step % args.gradient_accumulation_steps == 0):
+                for tag, features in benchmarks:
+                    f1, output = evaluate_token(args, model, features, tag=tag)
+                    wandb.log(output, step=num_steps)
+
+    for tag, features in benchmarks:
+        f1, output = evaluate_token(args, model, features, tag=tag)
+        wandb.log(output, step=num_steps)
+
+
+def evaluate_token(args, model, features, tag='dev'):
+    dataloader = DataLoader(features, batch_size=args.test_batch_size, collate_fn=collate_fn_token, drop_last=False)
+    keys, preds = [], []
+    for i_b, batch in enumerate(dataloader):
+        model.eval()
+
+        inputs = {'input_ids': batch[0].to(args.device),
+                  'attention_mask': batch[1].to(args.device),
+                  'ss': batch[3].to(args.device),
+                  'os': batch[4].to(args.device),
+                  'tag': batch[5].to(args.device),
+                  }
+        keys += batch[2].tolist()
+        with torch.no_grad():
+            logit = model(**inputs)[0]
+            pred = torch.argmax(logit, dim=-1)
+        preds += pred.tolist()
+
+    keys = np.array(keys, dtype=np.int64)
+    preds = np.array(preds, dtype=np.int64)
+    _, _, max_f1 = get_f1(keys, preds)
+
+    output = {
+        tag + "_f1": max_f1 * 100,
+    }
+    print(output)
+    if(tag == 'challenge_test'):
+        accuracy_challenge_tacred(keys, preds)
     return max_f1, output
 
 
@@ -124,7 +205,7 @@ def main():
     parser.add_argument("--seed", type=int, default=42,
                         help="random seed for initialization")
     parser.add_argument("--num_class", type=int, default=42)
-    parser.add_argument("--evaluation_steps", type=int, default=500,
+    parser.add_argument("--evaluation_steps", type=int, default=2500,
                         help="Number of steps to evaluate the model")
 
     parser.add_argument("--dropout_prob", type=float, default=0.1)
@@ -150,20 +231,30 @@ def main():
     )
 
     model = REModel(args, config)
+    # model = REModelToken(args, config)
     model.to(0)
 
     train_file = os.path.join(args.data_dir, "train.json")
     dev_file = os.path.join(args.data_dir, "dev.json")
     test_file = os.path.join(args.data_dir, "test.json")
-    dev_rev_file = os.path.join(args.data_dir, "dev_rev.json")
-    test_rev_file = os.path.join(args.data_dir, "test_rev.json")
+    # dev_rev_file = os.path.join(args.data_dir, "dev_rev.json")
+    # test_rev_file = os.path.join(args.data_dir, "test_rev.json")
+    challenge_test_file = os.path.join(args.data_dir, "challenge_set.json")
 
-    processor = TACREDProcessor(args, tokenizer)
-    train_features = processor.read(train_file)
-    dev_features = processor.read(dev_file)
-    test_features = processor.read(test_file)
-    dev_rev_features = processor.read(dev_rev_file)
-    test_rev_features = processor.read(test_rev_file)
+    # processor = TACREDProcessor(args, tokenizer)
+    processor = TACREDProcessorToken(args, tokenizer)
+
+    # train_features = processor.read(train_file)
+    # dev_features = processor.read(dev_file)
+    # test_features = processor.read(test_file)
+    # # dev_rev_features = processor.read(dev_rev_file)
+    # # test_rev_features = processor.read(test_rev_file)
+    # challenge_test_features = processor.read(challenge_test_file)
+
+    train_features = processor.read(train_file, os.path.join(args.data_dir, "complexity/is_complex_train.json"))
+    dev_features = processor.read(dev_file, os.path.join(args.data_dir, "complexity/is_complex_dev.json"))
+    test_features = processor.read(test_file, os.path.join(args.data_dir, "complexity/is_complex_test.json"))
+    challenge_test_features = processor.read(challenge_test_file, os.path.join(args.data_dir, "complexity/is_complex_challenge.json"))
 
     if len(processor.new_tokens) > 0:
         model.encoder.resize_token_embeddings(len(tokenizer))
@@ -171,11 +262,14 @@ def main():
     benchmarks = (
         ("dev", dev_features),
         ("test", test_features),
-        ("dev_rev", dev_rev_features),
-        ("test_rev", test_rev_features),
+        ("challenge_test", challenge_test_features),
+        # ("dev_rev", dev_rev_features),
+        # ("test_rev", test_rev_features),
     )
 
     train(args, model, train_features, benchmarks)
+    # train_token(args, model, train_features, benchmarks)
+
 
 
 if __name__ == "__main__":

@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+
+
+ 16%|████████████████████████████████████████▌                                                                                                                                                                                                                   | 9418/58465 [00:18<01:33, 522.67it/s]
+Traceback (most recent call last):
+  File "meta_learning/train_retacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_retacred.py", line 270, in main
+    train_features = processor.read_normal(train_file) #get features for examples not in meta-learning schema
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 444, in read_normal
+    input_ids, new_ss, new_os = self.tokenize(tokens, d['subj_type'], d['obj_type'], ss, se, os, oe)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 79, in tokenize
+    tokens_wordpiece = self.tokenizer.tokenize(token)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_fast.py", line 302, in tokenize
+    return self.encode_plus(text=text, text_pair=pair, add_special_tokens=add_special_tokens, **kwargs).tokens()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_base.py", line 2362, in encode_plus
+    **kwargs,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_fast.py", line 475, in _encode_plus
+    **kwargs,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_fast.py", line 419, in _batch_encode_plus
+    stack = [e for item, _ in tokens_and_encodings for e in item[key]]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_fast.py", line 419, in <listcomp>
+    stack = [e for item, _ in tokens_and_encodings for e in item[key]]
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "meta_learning/train_retacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_retacred.py", line 270, in main
+    train_features = processor.read_normal(train_file) #get features for examples not in meta-learning schema
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 444, in read_normal
+    input_ids, new_ss, new_os = self.tokenize(tokens, d['subj_type'], d['obj_type'], ss, se, os, oe)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 79, in tokenize
+    tokens_wordpiece = self.tokenizer.tokenize(token)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_fast.py", line 302, in tokenize
+    return self.encode_plus(text=text, text_pair=pair, add_special_tokens=add_special_tokens, **kwargs).tokens()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_base.py", line 2362, in encode_plus
+    **kwargs,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_fast.py", line 475, in _encode_plus
+    **kwargs,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_fast.py", line 419, in _batch_encode_plus
+    stack = [e for item, _ in tokens_and_encodings for e in item[key]]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils_fast.py", line 419, in <listcomp>
+    stack = [e for item, _ in tokens_and_encodings for e in item[key]]
+KeyboardInterrupt

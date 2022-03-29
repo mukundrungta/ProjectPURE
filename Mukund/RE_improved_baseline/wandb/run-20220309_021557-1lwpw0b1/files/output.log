@@ -1,0 +1,85 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 22611/22611 [00:27<00:00, 809.22it/s]
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:24<00:00, 919.67it/s]
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:16<00:00, 946.24it/s]
+
+
+
+
+ 99%|███████████████████████████████████████████████████████████████████████████████████████████▎| 10762/10844 [00:10<00:00, 1085.04it/s]
+Total steps: 28262
+100%|████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:10<00:00, 1057.73it/s]
+  0%|                                                                                                          | 0/11305 [00:00<?, ?it/s]/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py:155: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+  0%|                                                                                                          | 0/11305 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 184, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 49, in train
+    scaler.step(optimizer)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/grad_scaler.py", line 338, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/grad_scaler.py", line 285, in _maybe_opt_step
+    retval = optimizer.step(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/lr_scheduler.py", line 65, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py", line 157, in step
+    denom = exp_avg_sq.sqrt().add_(group["eps"])
+RuntimeError: CUDA out of memory. Tried to allocate 16.00 MiB (GPU 0; 10.76 GiB total capacity; 3.42 GiB already allocated; 18.44 MiB free; 3.51 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 184, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 49, in train
+    scaler.step(optimizer)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/grad_scaler.py", line 338, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/grad_scaler.py", line 285, in _maybe_opt_step
+    retval = optimizer.step(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/lr_scheduler.py", line 65, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py", line 157, in step
+    denom = exp_avg_sq.sqrt().add_(group["eps"])
+RuntimeError: CUDA out of memory. Tried to allocate 16.00 MiB (GPU 0; 10.76 GiB total capacity; 3.42 GiB already allocated; 18.44 MiB free; 3.51 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

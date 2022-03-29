@@ -1,0 +1,145 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 58465/58465 [02:00<00:00, 485.83it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 19584/19584 [00:36<00:00, 542.85it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13418/13418 [00:25<00:00, 521.56it/s]
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:18<00:00, 595.08it/s]
+Total steps: 18270
+Warmup steps: 1827
+  0%|                                                                                                                                                                                                                                                                                  | 0/3654 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_retacred_datamap.py", line 237, in <module>
+    main()
+  File "train_retacred_datamap.py", line 233, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred_datamap.py", line 37, in train
+    for step, batch in enumerate(tqdm(train_dataloader)):
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 561, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
+    return self.collate_fn(data)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/utils_datamap.py", line 21, in collate_fn
+    guid = [f["guid"] for f in batch]
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/utils_datamap.py", line 21, in <listcomp>
+    guid = [f["guid"] for f in batch]
+KeyError: 'guid'
+Traceback (most recent call last):
+  File "train_retacred_datamap.py", line 237, in <module>
+    main()
+  File "train_retacred_datamap.py", line 233, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred_datamap.py", line 37, in train
+    for step, batch in enumerate(tqdm(train_dataloader)):
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 561, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
+    return self.collate_fn(data)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/utils_datamap.py", line 21, in collate_fn
+    guid = [f["guid"] for f in batch]
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/utils_datamap.py", line 21, in <listcomp>
+    guid = [f["guid"] for f in batch]
+KeyError: 'guid'

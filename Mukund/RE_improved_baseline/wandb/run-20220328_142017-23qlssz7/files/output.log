@@ -1,0 +1,501 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 58465/58465 [01:58<00:00, 492.65it/s]
+Number of meta-train features = 16783
+Number of meta-test features = 16783
+Number of normal features = 58465
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 19584/19584 [00:38<00:00, 505.91it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13418/13418 [00:25<00:00, 526.25it/s]
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:17<00:00, 603.83it/s]
+Total steps: 18270
+Warmup steps: 1827
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  4%|██████▉                                                                                                                                                      | 162/3654 [00:31<11:10,  5.21it/s]meta_learning/train_retacred.py:100: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_grad_norm)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 68%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                 | 2499/3654 [07:54<05:22,  3.58it/s]
+{'dev_f1': 81.22717311906501}
+{'test_f1': 80.58027767888929}
+{'challenge_test_f1': 52.16342287276823}
+ACCURACY:   68.17%
+POSITIVE ACCURACY:   67.30%
+NEGATIVE ACCURACY:   68.88%
+-------------------------------------------------------------------
+TRUE POSITIVE:   0.299 		 (NUMBER:   3243)
+FALSE POSITIVE:   0.173 		 (NUMBER:   1875)
+TRUE NEGATIVE:   0.383 		 (NUMBER:   4150)
+FALSE NEGATIVE:   0.145 		 (NUMBER:   1576)
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3654/3654 [13:09<00:00,  4.63it/s]
+0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "meta_learning/train_retacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_retacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_retacred.py", line 136, in train_meta_learning
+    diffopt.step(meta_train_loss) # computing temporary params on meta-train set
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 233, in step
+    allow_unused=True  # boo
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 228, in grad
+    inputs, allow_unused, accumulate_grad=False)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/function.py", line 87, in apply
+    return self._forward_cls.backward(self, *args)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/checkpoint.py", line 97, in backward
+    "Checkpointing is not compatible with .grad() or when an `inputs` parameter"
+RuntimeError: Checkpointing is not compatible with .grad() or when an `inputs` parameter is passed to .backward(). Please use .backward() and do not pass its `inputs` argument.
+Traceback (most recent call last):
+  File "meta_learning/train_retacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_retacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_retacred.py", line 136, in train_meta_learning
+    diffopt.step(meta_train_loss) # computing temporary params on meta-train set
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 233, in step
+    allow_unused=True  # boo
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 228, in grad
+    inputs, allow_unused, accumulate_grad=False)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/function.py", line 87, in apply
+    return self._forward_cls.backward(self, *args)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/checkpoint.py", line 97, in backward
+    "Checkpointing is not compatible with .grad() or when an `inputs` parameter"
+RuntimeError: Checkpointing is not compatible with .grad() or when an `inputs` parameter is passed to .backward(). Please use .backward() and do not pass its `inputs` argument.

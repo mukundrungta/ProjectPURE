@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 166, in main
+    train_features = processor.read(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro.py", line 141, in read
+    with open(file_in, "r") as fh:
+FileNotFoundError: [Errno 2] No such file or directory: './data/tacred/train.json'
+Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 166, in main
+    train_features = processor.read(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro.py", line 141, in read
+    with open(file_in, "r") as fh:
+FileNotFoundError: [Errno 2] No such file or directory: './data/tacred/train.json'

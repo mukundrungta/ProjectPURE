@@ -1,0 +1,175 @@
+2022-02-11 15:28:13,698 INFO    MainThread:5052 [internal.py:wandb_internal():92] W&B internal server running at pid: 5052, started at: 2022-02-11 15:28:13.698459
+2022-02-11 15:28:13,702 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: check_version
+2022-02-11 15:28:13,702 INFO    WriterThread:5052 [datastore.py:open_for_write():77] open: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/run-10r9lcqq.wandb
+2022-02-11 15:28:13,707 DEBUG   SenderThread:5052 [sender.py:send():235] send: header
+2022-02-11 15:28:13,707 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: check_version
+2022-02-11 15:28:13,812 DEBUG   SenderThread:5052 [sender.py:send():235] send: run
+2022-02-11 15:28:13,919 INFO    SenderThread:5052 [dir_watcher.py:__init__():169] watching files in: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files
+2022-02-11 15:28:13,919 INFO    SenderThread:5052 [sender.py:_start_run_threads():812] run started: 10r9lcqq with start time 1644611292
+2022-02-11 15:28:13,919 DEBUG   SenderThread:5052 [sender.py:send():235] send: summary
+2022-02-11 15:28:13,920 INFO    SenderThread:5052 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-11 15:28:13,923 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: run_start
+2022-02-11 15:28:14,925 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_created():217] file/dir created: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/wandb-summary.json
+2022-02-11 15:28:15,540 DEBUG   HandlerThread:5052 [meta.py:__init__():36] meta init
+2022-02-11 15:28:15,540 DEBUG   HandlerThread:5052 [meta.py:__init__():50] meta init done
+2022-02-11 15:28:15,540 DEBUG   HandlerThread:5052 [meta.py:probe():210] probe
+2022-02-11 15:28:15,547 DEBUG   HandlerThread:5052 [meta.py:_setup_git():200] setup git
+2022-02-11 15:28:15,580 DEBUG   HandlerThread:5052 [meta.py:_setup_git():207] setup git done
+2022-02-11 15:28:15,580 DEBUG   HandlerThread:5052 [meta.py:_save_pip():54] save pip
+2022-02-11 15:28:15,581 DEBUG   HandlerThread:5052 [meta.py:_save_pip():68] save pip done
+2022-02-11 15:28:15,581 DEBUG   HandlerThread:5052 [meta.py:probe():248] probe done
+2022-02-11 15:28:15,586 DEBUG   SenderThread:5052 [sender.py:send():235] send: files
+2022-02-11 15:28:15,588 INFO    SenderThread:5052 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-02-11 15:28:15,603 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:28:15,605 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:28:15,924 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_created():217] file/dir created: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/requirements.txt
+2022-02-11 15:28:15,926 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_created():217] file/dir created: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/wandb-metadata.json
+2022-02-11 15:28:15,928 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_created():217] file/dir created: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:28:17,415 INFO    Thread-11 :5052 [upload_job.py:push():137] Uploaded file /tmp/tmpmy8hk04ywandb/in4xzcga-wandb-metadata.json
+2022-02-11 15:28:30,683 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:28:30,684 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:28:32,939 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:28:34,940 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:28:36,942 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:28:38,944 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:28:45,502 DEBUG   SenderThread:5052 [sender.py:send():235] send: stats
+2022-02-11 15:28:45,783 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:28:45,783 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:29:00,856 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:29:00,857 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:29:15,946 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:29:15,947 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:29:17,336 DEBUG   SenderThread:5052 [sender.py:send():235] send: stats
+2022-02-11 15:29:31,026 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:29:31,027 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:29:46,127 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:29:46,128 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:29:49,185 DEBUG   SenderThread:5052 [sender.py:send():235] send: stats
+2022-02-11 15:30:01,220 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:30:01,220 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:30:16,316 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:30:16,316 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:30:20,995 DEBUG   SenderThread:5052 [sender.py:send():235] send: stats
+2022-02-11 15:30:31,411 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:30:31,412 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:30:46,489 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-11 15:30:46,490 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: stop_status
+2022-02-11 15:30:50,043 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:30:52,044 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:30:52,792 DEBUG   SenderThread:5052 [sender.py:send():235] send: stats
+2022-02-11 15:30:54,046 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:30:56,047 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:30:58,049 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:31:00,051 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:31:00,811 DEBUG   SenderThread:5052 [sender.py:send():235] send: history
+2022-02-11 15:31:00,812 DEBUG   SenderThread:5052 [sender.py:send():235] send: summary
+2022-02-11 15:31:00,813 INFO    SenderThread:5052 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-11 15:31:01,051 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/wandb-summary.json
+2022-02-11 15:31:02,052 INFO    Thread-8  :5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:31:03,315 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:03,315 DEBUG   SenderThread:5052 [sender.py:send():235] send: telemetry
+2022-02-11 15:31:03,316 DEBUG   SenderThread:5052 [sender.py:send():235] send: exit
+2022-02-11 15:31:03,317 INFO    SenderThread:5052 [sender.py:send_exit():371] handling exit code: 1
+2022-02-11 15:31:03,321 INFO    SenderThread:5052 [sender.py:send_exit():373] handling runtime: 169
+2022-02-11 15:31:03,323 INFO    SenderThread:5052 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-11 15:31:03,323 INFO    SenderThread:5052 [sender.py:send_exit():379] send defer
+2022-02-11 15:31:03,324 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:03,326 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:03,326 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 0
+2022-02-11 15:31:03,327 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:03,327 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 0
+2022-02-11 15:31:03,327 INFO    SenderThread:5052 [sender.py:transition_state():392] send defer: 1
+2022-02-11 15:31:03,328 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:03,328 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 1
+2022-02-11 15:31:03,509 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:03,510 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:03,514 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 1
+2022-02-11 15:31:03,514 INFO    SenderThread:5052 [sender.py:transition_state():392] send defer: 2
+2022-02-11 15:31:03,515 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:03,515 DEBUG   SenderThread:5052 [sender.py:send():235] send: stats
+2022-02-11 15:31:03,517 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:03,518 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 2
+2022-02-11 15:31:03,518 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:03,518 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 2
+2022-02-11 15:31:03,518 INFO    SenderThread:5052 [sender.py:transition_state():392] send defer: 3
+2022-02-11 15:31:03,519 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:03,520 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 3
+2022-02-11 15:31:03,520 DEBUG   SenderThread:5052 [sender.py:send():235] send: summary
+2022-02-11 15:31:03,522 INFO    SenderThread:5052 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-11 15:31:03,523 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:03,523 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 3
+2022-02-11 15:31:03,523 INFO    SenderThread:5052 [sender.py:transition_state():392] send defer: 4
+2022-02-11 15:31:03,524 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:03,524 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 4
+2022-02-11 15:31:03,524 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:03,524 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 4
+2022-02-11 15:31:03,621 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:03,631 INFO    SenderThread:5052 [sender.py:transition_state():392] send defer: 5
+2022-02-11 15:31:03,631 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:03,633 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:03,633 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 5
+2022-02-11 15:31:03,633 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:03,633 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 5
+2022-02-11 15:31:03,633 INFO    SenderThread:5052 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-02-11 15:31:03,735 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:04,054 INFO    SenderThread:5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/config.yaml
+2022-02-11 15:31:04,055 INFO    SenderThread:5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/wandb-summary.json
+2022-02-11 15:31:04,055 INFO    SenderThread:5052 [dir_watcher.py:_on_file_modified():230] file/dir modified: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:31:04,056 INFO    SenderThread:5052 [dir_watcher.py:finish():313] scan: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files
+2022-02-11 15:31:04,056 INFO    SenderThread:5052 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log output.log
+2022-02-11 15:31:04,056 INFO    SenderThread:5052 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/config.yaml config.yaml
+2022-02-11 15:31:04,057 INFO    SenderThread:5052 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/wandb-summary.json wandb-summary.json
+2022-02-11 15:31:04,070 INFO    SenderThread:5052 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/requirements.txt requirements.txt
+2022-02-11 15:31:04,077 INFO    SenderThread:5052 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/wandb-metadata.json wandb-metadata.json
+2022-02-11 15:31:04,077 INFO    SenderThread:5052 [sender.py:transition_state():392] send defer: 6
+2022-02-11 15:31:04,079 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:04,081 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:04,088 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 6
+2022-02-11 15:31:04,090 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:04,090 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 6
+2022-02-11 15:31:04,090 INFO    SenderThread:5052 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-11 15:31:04,191 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:04,191 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:04,295 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:04,295 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:04,401 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:04,402 INFO    Thread-13 :5052 [upload_job.py:push():137] Uploaded file /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/config.yaml
+2022-02-11 15:31:04,403 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:04,432 INFO    Thread-12 :5052 [upload_job.py:push():137] Uploaded file /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/output.log
+2022-02-11 15:31:04,433 INFO    Thread-15 :5052 [upload_job.py:push():137] Uploaded file /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/requirements.txt
+2022-02-11 15:31:04,504 INFO    Thread-14 :5052 [upload_job.py:push():137] Uploaded file /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/files/wandb-summary.json
+2022-02-11 15:31:04,506 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:04,507 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:04,610 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:04,611 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:04,705 INFO    Thread-7  :5052 [sender.py:transition_state():392] send defer: 7
+2022-02-11 15:31:04,706 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:04,706 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 7
+2022-02-11 15:31:04,707 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:04,707 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 7
+2022-02-11 15:31:04,714 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:04,917 INFO    SenderThread:5052 [sender.py:transition_state():392] send defer: 8
+2022-02-11 15:31:04,917 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:04,919 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:04,919 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 8
+2022-02-11 15:31:04,919 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:04,920 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 8
+2022-02-11 15:31:04,920 INFO    SenderThread:5052 [sender.py:transition_state():392] send defer: 9
+2022-02-11 15:31:04,922 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: defer
+2022-02-11 15:31:04,922 DEBUG   SenderThread:5052 [sender.py:send():235] send: final
+2022-02-11 15:31:04,923 INFO    HandlerThread:5052 [handler.py:handle_request_defer():154] handle defer: 9
+2022-02-11 15:31:04,923 DEBUG   SenderThread:5052 [sender.py:send():235] send: footer
+2022-02-11 15:31:04,924 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: defer
+2022-02-11 15:31:04,924 INFO    SenderThread:5052 [sender.py:send_request_defer():388] handle sender defer: 9
+2022-02-11 15:31:05,021 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: poll_exit
+2022-02-11 15:31:05,021 DEBUG   SenderThread:5052 [sender.py:send_request():249] send_request: poll_exit
+2022-02-11 15:31:05,022 INFO    SenderThread:5052 [file_pusher.py:join():182] waiting for file pusher
+2022-02-11 15:31:05,157 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: get_summary
+2022-02-11 15:31:05,160 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: sampled_history
+2022-02-11 15:31:05,164 DEBUG   HandlerThread:5052 [handler.py:handle_request():131] handle_request: shutdown
+2022-02-11 15:31:05,164 INFO    HandlerThread:5052 [handler.py:finish():739] shutting down handler
+2022-02-11 15:31:05,923 INFO    WriterThread:5052 [datastore.py:close():281] close: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220211_152812-10r9lcqq/run-10r9lcqq.wandb
+2022-02-11 15:31:06,154 INFO    SenderThread:5052 [sender.py:finish():1075] shutting down sender
+2022-02-11 15:31:06,154 INFO    SenderThread:5052 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-11 15:31:06,154 INFO    SenderThread:5052 [file_pusher.py:join():182] waiting for file pusher
+2022-02-11 15:31:06,158 INFO    MainThread:5052 [internal.py:handle_exit():79] Internal process exited

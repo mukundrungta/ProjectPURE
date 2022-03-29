@@ -1,0 +1,17 @@
+  0%|                                                                                                                  | 0/68124 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 290, in <module>
+    main()
+  File "train_tacred.py", line 269, in main
+    train_features = processor.read(train_file) #dictionary with id as key as features as value
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 158, in read
+    'os': new_os,
+NameError: name 'feature' is not defined
+Traceback (most recent call last):
+  File "train_tacred.py", line 290, in <module>
+    main()
+  File "train_tacred.py", line 269, in main
+    train_features = processor.read(train_file) #dictionary with id as key as features as value
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 158, in read
+    'os': new_os,
+NameError: name 'feature' is not defined

@@ -1,0 +1,85 @@
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [00:06<00:00, 829.35it/s]
+ 29%|████████████████████████████████████▌                                                                                         | 1449/5000 [00:01<00:03, 981.95it/s]
+Number of train features = 58465
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [00:05<00:00, 956.18it/s]
+
+
+ 81%|█████████████████████████████████████████████████████████████████████████████████████████████████████▊                       | 4073/5000 [00:04<00:00, 1012.30it/s]
+Total steps: 146162
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [00:05<00:00, 973.95it/s]
+0it [00:00, ?it/s]/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:134: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+2it [00:01,  1.58it/s]/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/optimization.py:146: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+3it [00:01,  1.63it/s]
+Traceback (most recent call last):
+  File "train_retacred.py", line 248, in <module>
+    main()
+  File "train_retacred.py", line 245, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, benchmarks)
+  File "train_retacred.py", line 98, in train_meta_learning
+    with torch.backends.cudnn.flags(enabled=False), higher.innerloop_ctx(model, inner_opt, copy_initial_weights=False) as (fast_model, diffopt):
+  File "/usr/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/__init__.py", line 97, in innerloop_ctx
+    track_higher_grads=track_higher_grads
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 779, in get_diff_optim
+    **kwargs
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 101, in __init__
+    self.param_groups = _copy.deepcopy(other.param_groups)
+  File "/usr/lib/python3.6/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/usr/lib/python3.6/copy.py", line 215, in _deepcopy_list
+    append(deepcopy(a, memo))
+  File "/usr/lib/python3.6/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/usr/lib/python3.6/copy.py", line 240, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/usr/lib/python3.6/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/usr/lib/python3.6/copy.py", line 215, in _deepcopy_list
+    append(deepcopy(a, memo))
+  File "/usr/lib/python3.6/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/parameter.py", line 32, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+RuntimeError: CUDA out of memory. Tried to allocate 198.00 MiB (GPU 0; 10.76 GiB total capacity; 9.31 GiB already allocated; 85.44 MiB free; 9.52 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Traceback (most recent call last):
+  File "train_retacred.py", line 248, in <module>
+    main()
+  File "train_retacred.py", line 245, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, benchmarks)
+  File "train_retacred.py", line 98, in train_meta_learning
+    with torch.backends.cudnn.flags(enabled=False), higher.innerloop_ctx(model, inner_opt, copy_initial_weights=False) as (fast_model, diffopt):
+  File "/usr/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/__init__.py", line 97, in innerloop_ctx
+    track_higher_grads=track_higher_grads
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 779, in get_diff_optim
+    **kwargs
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 101, in __init__
+    self.param_groups = _copy.deepcopy(other.param_groups)
+  File "/usr/lib/python3.6/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/usr/lib/python3.6/copy.py", line 215, in _deepcopy_list
+    append(deepcopy(a, memo))
+  File "/usr/lib/python3.6/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/usr/lib/python3.6/copy.py", line 240, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/usr/lib/python3.6/copy.py", line 150, in deepcopy
+    y = copier(x, memo)
+  File "/usr/lib/python3.6/copy.py", line 215, in _deepcopy_list
+    append(deepcopy(a, memo))
+  File "/usr/lib/python3.6/copy.py", line 161, in deepcopy
+    y = copier(memo)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/parameter.py", line 32, in __deepcopy__
+    result = type(self)(self.data.clone(memory_format=torch.preserve_format), self.requires_grad)
+RuntimeError: CUDA out of memory. Tried to allocate 198.00 MiB (GPU 0; 10.76 GiB total capacity; 9.31 GiB already allocated; 85.44 MiB free; 9.52 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

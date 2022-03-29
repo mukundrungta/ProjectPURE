@@ -1,0 +1,119 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:43<00:00, 416.08it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 269.76it/s]
+  0%|                                                                                                                     | 0/10 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 308, in <module>
+    main()
+  File "train_tacred.py", line 302, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 162, in train
+    eucledian_distance = np.linalg.norm(easy_model_output - meta_test_model_output)
+  File "<__array_function__ internals>", line 6, in norm
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/numpy/linalg/linalg.py", line 2460, in norm
+    x = asarray(x)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/numpy/core/_asarray.py", line 85, in asarray
+    return array(a, dtype, copy=False, order=order)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_tensor.py", line 678, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+Traceback (most recent call last):
+  File "train_tacred.py", line 308, in <module>
+    main()
+  File "train_tacred.py", line 302, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 162, in train
+    eucledian_distance = np.linalg.norm(easy_model_output - meta_test_model_output)
+  File "<__array_function__ internals>", line 6, in norm
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/numpy/linalg/linalg.py", line 2460, in norm
+    x = asarray(x)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/numpy/core/_asarray.py", line 85, in asarray
+    return array(a, dtype, copy=False, order=order)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_tensor.py", line 678, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+****************************** Starting preprocessing of the dataset ******************************
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 10
+****************************** Preprocessing completed ******************************

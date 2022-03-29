@@ -1,3 +1,1 @@
-for SEED in 78 23 61;
-do python train_retacred.py --model_name_or_path roberta-large --input_format typed_entity_marker_punct --seed $SEED --run_name roberta;
-done;
+python train_retacred.py --model_name_or_path roberta-large --input_format typed_entity_marker_punct --seed 78 --learning_rate 3e-6 --train_batch_size 2 --test_batch_size 2 --run_name roberta_3e-6_entire_challenge_accuracy  --data_dir dataset/retacred;

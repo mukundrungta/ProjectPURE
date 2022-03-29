@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "meta_learning/train_retacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_retacred.py", line 269, in main
+    train_features_meta_train, train_features_meta_test = processor.read_metalearning(train_file) #get features for meta-learning
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 375, in read_metalearning
+    dataset_document = self.load_tacred(file_in)
+AttributeError: 'RETACREDProcessor' object has no attribute 'load_tacred'
+Traceback (most recent call last):
+  File "meta_learning/train_retacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_retacred.py", line 269, in main
+    train_features_meta_train, train_features_meta_test = processor.read_metalearning(train_file) #get features for meta-learning
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 375, in read_metalearning
+    dataset_document = self.load_tacred(file_in)
+AttributeError: 'RETACREDProcessor' object has no attribute 'load_tacred'

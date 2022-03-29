@@ -1,0 +1,112 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:42<00:00, 420.45it/s]
+****************************** Starting preprocessing of the dataset ******************************
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 10
+****************************** Preprocessing completed ******************************
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 267.15it/s]
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:53<00:00,  5.39s/it]
+Traceback (most recent call last):
+  File "train_tacred.py", line 310, in <module>
+    main()
+  File "train_tacred.py", line 305, in main
+    df = create_df(dict_meta_test_map, dataset_document)
+  File "train_tacred.py", line 196, in create_df
+    for key in dict_meta_temp_map.keys():
+NameError: name 'dict_meta_temp_map' is not defined
+Traceback (most recent call last):
+  File "train_tacred.py", line 310, in <module>
+    main()
+  File "train_tacred.py", line 305, in main
+    df = create_df(dict_meta_test_map, dataset_document)
+  File "train_tacred.py", line 196, in create_df
+    for key in dict_meta_temp_map.keys():
+NameError: name 'dict_meta_temp_map' is not defined

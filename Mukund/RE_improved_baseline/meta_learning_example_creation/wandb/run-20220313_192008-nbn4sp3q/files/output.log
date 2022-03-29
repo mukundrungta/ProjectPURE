@@ -1,0 +1,103 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████▉| 68118/68124 [02:40<00:00, 432.25it/s]
+****************************** Starting preprocessing of the dataset ******************************
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 10
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:40<00:00, 424.22it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 279.75it/s]
+  0%|                                                                                                                     | 0/10 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 300, in <module>
+    main()
+  File "train_tacred.py", line 294, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 129, in train
+    batch = easy_feature[0]
+TypeError: 'DataLoader' object does not support indexing
+Traceback (most recent call last):
+  File "train_tacred.py", line 300, in <module>
+    main()
+  File "train_tacred.py", line 294, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 129, in train
+    batch = easy_feature[0]
+TypeError: 'DataLoader' object does not support indexing

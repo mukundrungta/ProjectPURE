@@ -1,0 +1,47 @@
+2022-02-21 00:55:15,808 INFO    MainThread:35192 [internal.py:wandb_internal():92] W&B internal server running at pid: 35192, started at: 2022-02-21 00:55:15.807526
+2022-02-21 00:55:15,811 DEBUG   HandlerThread:35192 [handler.py:handle_request():131] handle_request: check_version
+2022-02-21 00:55:15,811 INFO    WriterThread:35192 [datastore.py:open_for_write():77] open: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/run-7ews4s29.wandb
+2022-02-21 00:55:15,816 DEBUG   SenderThread:35192 [sender.py:send():235] send: header
+2022-02-21 00:55:15,816 DEBUG   SenderThread:35192 [sender.py:send_request():249] send_request: check_version
+2022-02-21 00:55:15,916 DEBUG   SenderThread:35192 [sender.py:send():235] send: run
+2022-02-21 00:55:16,035 INFO    SenderThread:35192 [dir_watcher.py:__init__():169] watching files in: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files
+2022-02-21 00:55:16,036 INFO    SenderThread:35192 [sender.py:_start_run_threads():812] run started: 7ews4s29 with start time 1645422914
+2022-02-21 00:55:16,036 DEBUG   SenderThread:35192 [sender.py:send():235] send: summary
+2022-02-21 00:55:16,037 INFO    SenderThread:35192 [sender.py:_save_file():944] saving file wandb-summary.json with policy end
+2022-02-21 00:55:16,041 DEBUG   HandlerThread:35192 [handler.py:handle_request():131] handle_request: run_start
+2022-02-21 00:55:17,049 INFO    Thread-8  :35192 [dir_watcher.py:_on_file_created():217] file/dir created: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/wandb-summary.json
+2022-02-21 00:55:17,719 DEBUG   HandlerThread:35192 [meta.py:__init__():36] meta init
+2022-02-21 00:55:17,719 DEBUG   HandlerThread:35192 [meta.py:__init__():50] meta init done
+2022-02-21 00:55:17,719 DEBUG   HandlerThread:35192 [meta.py:probe():210] probe
+2022-02-21 00:55:17,727 DEBUG   HandlerThread:35192 [meta.py:_setup_git():200] setup git
+2022-02-21 00:55:17,760 DEBUG   HandlerThread:35192 [meta.py:_setup_git():207] setup git done
+2022-02-21 00:55:17,760 DEBUG   HandlerThread:35192 [meta.py:_save_pip():54] save pip
+2022-02-21 00:55:17,762 DEBUG   HandlerThread:35192 [meta.py:_save_pip():68] save pip done
+2022-02-21 00:55:17,762 DEBUG   HandlerThread:35192 [meta.py:probe():248] probe done
+2022-02-21 00:55:17,768 DEBUG   SenderThread:35192 [sender.py:send():235] send: files
+2022-02-21 00:55:17,768 INFO    SenderThread:35192 [sender.py:_save_file():944] saving file wandb-metadata.json with policy now
+2022-02-21 00:55:17,783 DEBUG   HandlerThread:35192 [handler.py:handle_request():131] handle_request: stop_status
+2022-02-21 00:55:17,784 DEBUG   SenderThread:35192 [sender.py:send_request():249] send_request: stop_status
+2022-02-21 00:55:18,045 INFO    Thread-8  :35192 [dir_watcher.py:_on_file_created():217] file/dir created: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/requirements.txt
+2022-02-21 00:55:18,046 INFO    Thread-8  :35192 [dir_watcher.py:_on_file_created():217] file/dir created: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/output.log
+2022-02-21 00:55:18,047 INFO    Thread-8  :35192 [dir_watcher.py:_on_file_created():217] file/dir created: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/wandb-metadata.json
+2022-02-21 00:55:18,193 INFO    Thread-11 :35192 [upload_job.py:push():137] Uploaded file /tmp/tmpmtzb9tehwandb/62alh2pe-wandb-metadata.json
+2022-02-21 00:55:21,274 WARNING MainThread:35192 [internal.py:wandb_internal():152] Internal process interrupt: 1
+2022-02-21 00:55:22,015 WARNING MainThread:35192 [internal.py:wandb_internal():152] Internal process interrupt: 2
+2022-02-21 00:55:22,015 ERROR   MainThread:35192 [internal.py:wandb_internal():155] Internal process interrupted.
+2022-02-21 00:55:22,770 INFO    WriterThread:35192 [datastore.py:close():281] close: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/run-7ews4s29.wandb
+2022-02-21 00:55:22,789 INFO    HandlerThread:35192 [handler.py:finish():739] shutting down handler
+2022-02-21 00:55:22,851 INFO    SenderThread:35192 [sender.py:finish():1075] shutting down sender
+2022-02-21 00:55:22,852 INFO    SenderThread:35192 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-02-21 00:55:23,049 INFO    SenderThread:35192 [dir_watcher.py:finish():313] scan: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files
+2022-02-21 00:55:23,050 INFO    SenderThread:35192 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/requirements.txt requirements.txt
+2022-02-21 00:55:23,050 INFO    SenderThread:35192 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/output.log output.log
+2022-02-21 00:55:23,051 INFO    SenderThread:35192 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/wandb-metadata.json wandb-metadata.json
+2022-02-21 00:55:23,057 INFO    SenderThread:35192 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/wandb-summary.json wandb-summary.json
+2022-02-21 00:55:23,058 INFO    SenderThread:35192 [dir_watcher.py:finish():327] scan save: /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/config.yaml config.yaml
+2022-02-21 00:55:23,065 INFO    SenderThread:35192 [file_pusher.py:finish():177] shutting down file pusher
+2022-02-21 00:55:23,065 INFO    SenderThread:35192 [file_pusher.py:join():182] waiting for file pusher
+2022-02-21 00:55:23,424 INFO    Thread-13 :35192 [upload_job.py:push():137] Uploaded file /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/wandb-summary.json
+2022-02-21 00:55:23,440 INFO    Thread-14 :35192 [upload_job.py:push():137] Uploaded file /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/config.yaml
+2022-02-21 00:55:23,459 INFO    Thread-12 :35192 [upload_job.py:push():137] Uploaded file /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220221_005514-7ews4s29/files/requirements.txt
+2022-02-21 00:55:24,132 INFO    MainThread:35192 [internal.py:handle_exit():79] Internal process exited

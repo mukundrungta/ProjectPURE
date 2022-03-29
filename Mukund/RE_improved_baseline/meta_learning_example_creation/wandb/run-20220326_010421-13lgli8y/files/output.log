@@ -1,0 +1,105 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:38<00:00, 428.52it/s]
+****************************** Starting preprocessing of the dataset ******************************
+ 63%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                                                                 | 63/100 [00:00<00:00, 86.05it/s]
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 100
+****************************** Preprocessing completed ********************************************
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:01<00:00, 84.42it/s]
+Computed representation for the meta-test examples beforehand
+  0%|▍                                                                                                                                                                                                                                                                    | 97/61294 [00:00<10:20, 98.66it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 395, in <module>
+    main()
+  File "train_tacred.py", line 386, in main
+    dict_meta_test_map = train_ngram(args, dataset_document, meta_test_filtered_list, n=1) #compute dictionary of meta-train and meta-test pair using the ngram similarity
+  File "train_tacred.py", line 173, in train_ngram
+    for meta_test_guid in meta_test_filtered_list[guid]:
+KeyError: '61b3a65fb927c1036ab2'
+Traceback (most recent call last):
+  File "train_tacred.py", line 395, in <module>
+    main()
+  File "train_tacred.py", line 386, in main
+    dict_meta_test_map = train_ngram(args, dataset_document, meta_test_filtered_list, n=1) #compute dictionary of meta-train and meta-test pair using the ngram similarity
+  File "train_tacred.py", line 173, in train_ngram
+    for meta_test_guid in meta_test_filtered_list[guid]:
+KeyError: '61b3a65fb927c1036ab2'

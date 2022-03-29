@@ -1,0 +1,248 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████▉| 68045/68124 [02:37<00:00, 422.16it/s]
+Number of meta-train features = 8063
+Number of meta-test features = 8063
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:38<00:00, 430.82it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:51<00:00, 442.22it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:34<00:00, 454.03it/s]
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:20<00:00, 537.13it/s]
+  0%|                                                                                                                  | 0/15015 [00:00<?, ?it/s]
+Total steps: 75075
+  0%|                                                                                                                  | 0/15015 [00:00<?, ?it/s]/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py:155: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 13%|█████████████▏                                                                                         | 1919/15015 [02:29<16:50, 12.96it/s]Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 295, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 291, in main
+    train(args, model, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 50, in train
+    torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_grad_norm)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/utils/clip_grad.py", line 42, in clip_grad_norm_
+    total_norm = torch.norm(torch.stack([torch.norm(p.grad.detach(), norm_type).to(device) for p in parameters]), norm_type)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/utils/clip_grad.py", line 42, in <listcomp>
+    total_norm = torch.norm(torch.stack([torch.norm(p.grad.detach(), norm_type).to(device) for p in parameters]), norm_type)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/functional.py", line 1421, in norm
+    return _VF.norm(input, p, dim=_dim, keepdim=keepdim)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_VF.py", line 25, in __getattr__
+    def __getattr__(self, attr):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 295, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 291, in main
+    train(args, model, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 50, in train
+    torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_grad_norm)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/utils/clip_grad.py", line 42, in clip_grad_norm_
+    total_norm = torch.norm(torch.stack([torch.norm(p.grad.detach(), norm_type).to(device) for p in parameters]), norm_type)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/utils/clip_grad.py", line 42, in <listcomp>
+    total_norm = torch.norm(torch.stack([torch.norm(p.grad.detach(), norm_type).to(device) for p in parameters]), norm_type)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/functional.py", line 1421, in norm
+    return _VF.norm(input, p, dim=_dim, keepdim=keepdim)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_VF.py", line 25, in __getattr__
+    def __getattr__(self, attr):
+KeyboardInterrupt
+ 13%|█████████████▏                                                                                         | 1919/15015 [02:29<16:58, 12.86it/s]

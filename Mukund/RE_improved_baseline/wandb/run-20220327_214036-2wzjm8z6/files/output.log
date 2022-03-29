@@ -1,0 +1,17 @@
+  0%|                                                                                                                                                                                                                                                                        | 7/58465 [00:00<02:38, 368.68it/s]
+Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 237, in <module>
+    main()
+  File "train_tacred_datamap.py", line 215, in main
+    train_features = processor.read(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_datamap.py", line 152, in read
+    rel = self.LABEL_TO_ID[d['relation']]
+KeyError: 'per:identity'
+Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 237, in <module>
+    main()
+  File "train_tacred_datamap.py", line 215, in main
+    train_features = processor.read(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_datamap.py", line 152, in read
+    rel = self.LABEL_TO_ID[d['relation']]
+KeyError: 'per:identity'

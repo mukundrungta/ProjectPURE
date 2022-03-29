@@ -1,0 +1,127 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 58465/58465 [02:18<00:00, 423.63it/s]
+Number of train features = 500
+Number of test features = 500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 19584/19584 [00:43<00:00, 448.27it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13418/13418 [00:29<00:00, 455.06it/s]
+
+ 18%|███████████████████████                                                                                                      | 2006/10844 [00:04<00:18, 478.00it/s]
+Traceback (most recent call last):
+  File "train_retacred.py", line 252, in <module>
+    main()
+  File "train_retacred.py", line 236, in main
+    challenge_test_features = processor.read(challenge_test_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro.py", line 183, in read
+    rel = self.LABEL_TO_ID[d['relation']]
+KeyError: 'org:country_of_headquarters'
+Traceback (most recent call last):
+  File "train_retacred.py", line 252, in <module>
+    main()
+  File "train_retacred.py", line 236, in main
+    challenge_test_features = processor.read(challenge_test_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro.py", line 183, in read
+    rel = self.LABEL_TO_ID[d['relation']]
+KeyError: 'org:country_of_headquarters'

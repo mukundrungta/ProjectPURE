@@ -1,0 +1,45 @@
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 451.68it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 421.74it/s]
+Total steps: 30
+Warmup steps: 3
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 412.90it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 471.38it/s]
+  0%|                                                                                                                      | 0/6 [00:00<?, ?it/s]/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/model.py:67: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  lookup_tensor = torch.tensor(tag, dtype=torch.long)
+/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py:155: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 11.74it/s]
+  0%|                                                                                                                      | 0/6 [00:00<?, ?it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 13.55it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 12.59it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 12.49it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 12.67it/s]
+{'test_f1': 0.0}
+{'challenge_test_f1': 0.0}
+Traceback (most recent call last):
+  File "train_tacred.py", line 276, in <module>
+    main()
+  File "train_tacred.py", line 271, in main
+    train_token(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 138, in train_token
+    f1, output = evaluate_token(args, model, features, tag=tag)
+  File "train_tacred.py", line 169, in evaluate_token
+    accuracy_challenge_tacred(keys, preds)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/evaluation.py", line 134, in accuracy_challenge_tacred
+    if(pred_label[index] == row['id_relation']):
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "train_tacred.py", line 276, in <module>
+    main()
+  File "train_tacred.py", line 271, in main
+    train_token(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 138, in train_token
+    f1, output = evaluate_token(args, model, features, tag=tag)
+  File "train_tacred.py", line 169, in evaluate_token
+    accuracy_challenge_tacred(keys, preds)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/evaluation.py", line 134, in accuracy_challenge_tacred
+    if(pred_label[index] == row['id_relation']):
+IndexError: list index out of range

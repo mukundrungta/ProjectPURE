@@ -1,0 +1,80 @@
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 128/128 [00:00<00:00, 570.31it/s]
+  0%|                                                                                                                                                                                                                                                                        | 0/22631 [00:00<?, ?it/s]
+Number of meta-train features = 11
+Number of meta-test features = 11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:37<00:00, 601.23it/s]
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:25<00:00, 609.51it/s]
+
+
+
+
+
+
+
+ 99%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉   | 10709/10844 [00:14<00:00, 751.31it/s]
+Total steps: 40
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:14<00:00, 725.26it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00,  9.72it/s]
+0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 136, in train_meta_learning
+    diffopt.step(meta_train_loss) # computing temporary params on meta-train set
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 233, in step
+    allow_unused=True  # boo
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 228, in grad
+    inputs, allow_unused, accumulate_grad=False)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/function.py", line 87, in apply
+    return self._forward_cls.backward(self, *args)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/checkpoint.py", line 97, in backward
+    "Checkpointing is not compatible with .grad() or when an `inputs` parameter"
+RuntimeError: Checkpointing is not compatible with .grad() or when an `inputs` parameter is passed to .backward(). Please use .backward() and do not pass its `inputs` argument.
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 136, in train_meta_learning
+    diffopt.step(meta_train_loss) # computing temporary params on meta-train set
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 233, in step
+    allow_unused=True  # boo
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 228, in grad
+    inputs, allow_unused, accumulate_grad=False)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/function.py", line 87, in apply
+    return self._forward_cls.backward(self, *args)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/checkpoint.py", line 97, in backward
+    "Checkpointing is not compatible with .grad() or when an `inputs` parameter"
+RuntimeError: Checkpointing is not compatible with .grad() or when an `inputs` parameter is passed to .backward(). Please use .backward() and do not pass its `inputs` argument.

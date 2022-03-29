@@ -1,0 +1,38 @@
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 641.41it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 527.34it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 498.82it/s]
+Total steps: 0
+Warmup steps: 0
+{'dev_f1': 0.0}
+{'test_f1': 0.0}
+{'challenge_test_f1': 13.333333333333334}
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 565.29it/s]
+0it [00:00, ?it/s]
+0it [00:00, ?it/s]
+0it [00:00, ?it/s]
+0it [00:00, ?it/s]
+0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 196, in <module>
+    main()
+  File "train_tacred_datamap.py", line 192, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred_datamap.py", line 69, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_tacred_datamap.py", line 99, in evaluate
+    accuracy_challenge_tacred(keys, preds)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/evaluation.py", line 134, in accuracy_challenge_tacred
+    if(pred_label[index] == row['id_relation']):
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 196, in <module>
+    main()
+  File "train_tacred_datamap.py", line 192, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred_datamap.py", line 69, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_tacred_datamap.py", line 99, in evaluate
+    accuracy_challenge_tacred(keys, preds)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/evaluation.py", line 134, in accuracy_challenge_tacred
+    if(pred_label[index] == row['id_relation']):
+IndexError: list index out of range

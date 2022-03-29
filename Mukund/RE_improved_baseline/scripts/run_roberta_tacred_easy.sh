@@ -1,0 +1,1 @@
+python train_tacred.py --model_name_or_path roberta-large --input_format typed_entity_marker_punct --seed 78 --learning_rate 3e-6 --train_batch_size 2 --test_batch_size 2 --run_name roberta_tacred_easy  --data_dir dataset/tacred_filtered_easy;

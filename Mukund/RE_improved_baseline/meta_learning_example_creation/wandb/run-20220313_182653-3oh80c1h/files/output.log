@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "train_tacred.py", line 290, in <module>
+    main()
+  File "train_tacred.py", line 245, in main
+    set_seed(args)
+NameError: name 'set_seed' is not defined
+Traceback (most recent call last):
+  File "train_tacred.py", line 290, in <module>
+    main()
+  File "train_tacred.py", line 245, in main
+    set_seed(args)
+NameError: name 'set_seed' is not defined

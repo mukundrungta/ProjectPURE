@@ -1,0 +1,84 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 68%|█████████████████████████████████████████████████████████████████████████▍                                  | 46337/68124 [01:51<01:14, 292.00it/s]Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 237, in <module>
+    main()
+  File "train_tacred_datamap.py", line 215, in main
+    train_features = processor.read(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_datamap.py", line 151, in read
+    input_ids, new_ss, new_os = self.tokenize(tokens, d['subj_type'], d['obj_type'], ss, se, os, oe)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_datamap.py", line 67, in tokenize
+    tokens_wordpiece = self.tokenizer.tokenize(token)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils.py", line 755, in tokenize
+    all_special_tokens = self.all_special_tokens
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils.py", line 1586, in all_special_tokens
+    all_toks = all_toks + (list(attr_value) if isinstance(attr_value, (list, tuple)) else [attr_value])
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 237, in <module>
+    main()
+  File "train_tacred_datamap.py", line 215, in main
+    train_features = processor.read(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_datamap.py", line 151, in read
+    input_ids, new_ss, new_os = self.tokenize(tokens, d['subj_type'], d['obj_type'], ss, se, os, oe)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_datamap.py", line 67, in tokenize
+    tokens_wordpiece = self.tokenizer.tokenize(token)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils.py", line 755, in tokenize
+    all_special_tokens = self.all_special_tokens
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/tokenization_utils.py", line 1586, in all_special_tokens
+    all_toks = all_toks + (list(attr_value) if isinstance(attr_value, (list, tuple)) else [attr_value])
+KeyboardInterrupt
+ 68%|█████████████████████████████████████████████████████████████████████████▍                                  | 46337/68124 [01:51<00:52, 414.71it/s]

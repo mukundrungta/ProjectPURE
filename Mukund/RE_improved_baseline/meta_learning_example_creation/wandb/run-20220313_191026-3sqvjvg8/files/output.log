@@ -1,0 +1,122 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:38<00:00, 430.17it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 282.53it/s]
+  0%|                                                                                                                     | 0/10 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 291, in <module>
+    main()
+  File "train_tacred.py", line 285, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 134, in train
+    easy_model_output = model(**easy_feature_inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autocast_mode.py", line 198, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/model.py", line 25, in forward
+    attention_mask=attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 691, in forward
+    input_shape = input_ids.size()
+AttributeError: 'list' object has no attribute 'size'
+Traceback (most recent call last):
+  File "train_tacred.py", line 291, in <module>
+    main()
+  File "train_tacred.py", line 285, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 134, in train
+    easy_model_output = model(**easy_feature_inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autocast_mode.py", line 198, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/model.py", line 25, in forward
+    attention_mask=attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 691, in forward
+    input_shape = input_ids.size()
+AttributeError: 'list' object has no attribute 'size'
+****************************** Starting preprocessing of the dataset ******************************
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 10
+****************************** Preprocessing completed ******************************

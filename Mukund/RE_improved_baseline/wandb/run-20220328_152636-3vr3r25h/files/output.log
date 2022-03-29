@@ -1,0 +1,145 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 58465/58465 [01:59<00:00, 487.30it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 19584/19584 [00:39<00:00, 498.23it/s]
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13418/13418 [00:23<00:00, 559.86it/s]
+
+
+
+
+
+
+
+
+ 99%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉ | 10771/10844 [00:17<00:00, 577.73it/s]
+Total steps: 18270
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:17<00:00, 624.64it/s]
+  0%|                                                                                                                                                                       | 0/3654 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_retacred.py", line 344, in <module>
+    main()
+  File "train_retacred.py", line 340, in main
+    train_token(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 181, in train_token
+    for step, batch in enumerate(tqdm(train_dataloader)):
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 561, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
+    return self.collate_fn(data)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/utils.py", line 36, in collate_fn_token
+    tag = [f["tag"] for f in batch]
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/utils.py", line 36, in <listcomp>
+    tag = [f["tag"] for f in batch]
+KeyError: 'tag'
+Traceback (most recent call last):
+  File "train_retacred.py", line 344, in <module>
+    main()
+  File "train_retacred.py", line 340, in main
+    train_token(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 181, in train_token
+    for step, batch in enumerate(tqdm(train_dataloader)):
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py", line 561, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 47, in fetch
+    return self.collate_fn(data)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/utils.py", line 36, in collate_fn_token
+    tag = [f["tag"] for f in batch]
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/utils.py", line 36, in <listcomp>
+    tag = [f["tag"] for f in batch]
+KeyError: 'tag'

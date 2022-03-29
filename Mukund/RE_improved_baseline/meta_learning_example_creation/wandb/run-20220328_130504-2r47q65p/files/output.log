@@ -1,0 +1,565 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 58465/58465 [01:55<00:00, 507.39it/s]
+****************************** Starting preprocessing of the dataset ******************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉| 54376/54409 [14:03<00:00, 70.07it/s]
+Total number of easy examples = 54409
+Easy examples for which meta-test exists = 54393
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 54409/54409 [14:04<00:00, 64.45it/s]
+/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py:762: UserWarning: [W095] Model 'en_core_web_sm' (3.2.0) was trained with spaCy v3.2 and may not be 100% compatible with the current version (3.1.5). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+Traceback (most recent call last):
+  File "train_retacred.py", line 395, in <module>
+    main()
+  File "train_retacred.py", line 386, in main
+    dict_meta_test_map = train_ngram(args, dataset_document, meta_test_filtered_list, n=1) #compute dictionary of meta-train and meta-test pair using the ngram similarity
+  File "train_retacred.py", line 155, in train_ngram
+    nlp = spacy.load('en_core_web_sm')
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/__init__.py", line 52, in load
+    name, vocab=vocab, disable=disable, exclude=exclude, config=config
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 349, in load_model
+    return load_model_from_package(name, **kwargs)  # type: ignore[arg-type]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 382, in load_model_from_package
+    return cls.load(vocab=vocab, disable=disable, exclude=exclude, config=config)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/en_core_web_sm/__init__.py", line 10, in load
+    return load_model_from_init_py(__file__, **overrides)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 550, in load_model_from_init_py
+    config=config,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 417, in load_model_from_path
+    nlp = load_model_from_config(config, vocab=vocab, disable=disable, exclude=exclude)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 460, in load_model_from_config
+    validate=validate,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/language.py", line 1768, in from_config
+    raw_config=raw_config,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/language.py", line 792, in add_pipe
+    validate=validate,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/language.py", line 670, in create_pipe
+    resolved = registry.resolve(cfg, validate=validate)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 747, in resolve
+    config, schema=schema, overrides=overrides, validate=validate, resolve=True
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 796, in _make
+    config, schema, validate=validate, overrides=overrides, resolve=resolve
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 856, in _fill
+    overrides=overrides,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 849, in _fill
+    promise_schema = cls.make_promise_schema(value, resolve=resolve)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 1040, in make_promise_schema
+    func = cls.get(reg_name, func_name)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 126, in get
+    raise RegistryError(Errors.E892.format(name=registry_name, available=names))
+catalogue.RegistryError: [E892] Unknown function registry: 'scorers'.
+Available names: architectures, augmenters, batchers, callbacks, cli, datasets, displacy_colors, factories, initializers, languages, layers, lemmatizers, loggers, lookups, losses, misc, models, ops, optimizers, readers, schedules, tokenizers
+Traceback (most recent call last):
+  File "train_retacred.py", line 395, in <module>
+    main()
+  File "train_retacred.py", line 386, in main
+    dict_meta_test_map = train_ngram(args, dataset_document, meta_test_filtered_list, n=1) #compute dictionary of meta-train and meta-test pair using the ngram similarity
+  File "train_retacred.py", line 155, in train_ngram
+    nlp = spacy.load('en_core_web_sm')
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/__init__.py", line 52, in load
+    name, vocab=vocab, disable=disable, exclude=exclude, config=config
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 349, in load_model
+    return load_model_from_package(name, **kwargs)  # type: ignore[arg-type]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 382, in load_model_from_package
+    return cls.load(vocab=vocab, disable=disable, exclude=exclude, config=config)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/en_core_web_sm/__init__.py", line 10, in load
+    return load_model_from_init_py(__file__, **overrides)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 550, in load_model_from_init_py
+    config=config,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 417, in load_model_from_path
+    nlp = load_model_from_config(config, vocab=vocab, disable=disable, exclude=exclude)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 460, in load_model_from_config
+    validate=validate,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/language.py", line 1768, in from_config
+    raw_config=raw_config,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/language.py", line 792, in add_pipe
+    validate=validate,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/language.py", line 670, in create_pipe
+    resolved = registry.resolve(cfg, validate=validate)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 747, in resolve
+    config, schema=schema, overrides=overrides, validate=validate, resolve=True
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 796, in _make
+    config, schema, validate=validate, overrides=overrides, resolve=resolve
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 856, in _fill
+    overrides=overrides,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 849, in _fill
+    promise_schema = cls.make_promise_schema(value, resolve=resolve)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/thinc/config.py", line 1040, in make_promise_schema
+    func = cls.get(reg_name, func_name)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/spacy/util.py", line 126, in get
+    raise RegistryError(Errors.E892.format(name=registry_name, available=names))
+catalogue.RegistryError: [E892] Unknown function registry: 'scorers'.
+Available names: architectures, augmenters, batchers, callbacks, cli, datasets, displacy_colors, factories, initializers, languages, layers, lemmatizers, loggers, lookups, losses, misc, models, ops, optimizers, readers, schedules, tokenizers

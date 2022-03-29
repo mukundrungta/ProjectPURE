@@ -1,0 +1,231 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:59<00:00, 378.96it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:57<00:00, 396.49it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:38<00:00, 407.72it/s]
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:22<00:00, 478.61it/s]
+  0%|                                                                                                                   | 0/4257 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 276, in <module>
+    main()
+  File "train_tacred.py", line 271, in main
+    train_token(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 118, in train_token
+    outputs = model(**inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autocast_mode.py", line 198, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/model.py", line 61, in forward
+    attention_mask=attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 790, in forward
+    encoder_attention_mask=encoder_extended_attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 407, in forward
+    hidden_states, attention_mask, head_mask[i], encoder_hidden_states, encoder_attention_mask
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 368, in forward
+    self_attention_outputs = self.attention(hidden_states, attention_mask, head_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 314, in forward
+    hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 216, in forward
+    mixed_query_layer = self.query(hidden_states)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/linear.py", line 103, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/functional.py", line 1848, in linear
+    return torch._C._nn.linear(input, weight, bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_ALLOC_FAILED when calling `cublasCreate(handle)`
+Traceback (most recent call last):
+  File "train_tacred.py", line 276, in <module>
+    main()
+  File "train_tacred.py", line 271, in main
+    train_token(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 118, in train_token
+    outputs = model(**inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autocast_mode.py", line 198, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/model.py", line 61, in forward
+    attention_mask=attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 790, in forward
+    encoder_attention_mask=encoder_extended_attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 407, in forward
+    hidden_states, attention_mask, head_mask[i], encoder_hidden_states, encoder_attention_mask
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 368, in forward
+    self_attention_outputs = self.attention(hidden_states, attention_mask, head_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 314, in forward
+    hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 216, in forward
+    mixed_query_layer = self.query(hidden_states)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/linear.py", line 103, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/functional.py", line 1848, in linear
+    return torch._C._nn.linear(input, weight, bias)
+RuntimeError: CUDA error: CUBLAS_STATUS_ALLOC_FAILED when calling `cublasCreate(handle)`
+Total steps: 21285
+Warmup steps: 2128

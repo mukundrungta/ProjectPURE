@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "train_retacred.py", line 395, in <module>
+    main()
+  File "train_retacred.py", line 367, in main
+    processor = RETACREDProcessor(args, tokenizer)
+NameError: name 'RETACREDProcessor' is not defined
+Traceback (most recent call last):
+  File "train_retacred.py", line 395, in <module>
+    main()
+  File "train_retacred.py", line 367, in main
+    processor = RETACREDProcessor(args, tokenizer)
+NameError: name 'RETACREDProcessor' is not defined

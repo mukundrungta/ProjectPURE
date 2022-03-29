@@ -1,0 +1,125 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [01:56<00:00, 583.92it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:37<00:00, 611.26it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:24<00:00, 626.10it/s]
+
+
+
+
+
+
+ 97%|█████████████████████████████████████████████████████████████████████████████████████▍  | 10527/10844 [00:13<00:00, 756.88it/s]
+Total steps: 21285
+100%|████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:14<00:00, 753.71it/s]
+  0%|                                                                                                      | 0/4257 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 276, in <module>
+    main()
+  File "train_tacred.py", line 271, in main
+    train_token(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 118, in train_token
+    outputs = model(**inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/autocast_mode.py", line 141, in decorate_autocast
+    return func(*args, **kwargs)
+TypeError: forward() got an unexpected keyword argument 'tag'
+Traceback (most recent call last):
+  File "train_tacred.py", line 276, in <module>
+    main()
+  File "train_tacred.py", line 271, in main
+    train_token(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 118, in train_token
+    outputs = model(**inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/autocast_mode.py", line 141, in decorate_autocast
+    return func(*args, **kwargs)
+TypeError: forward() got an unexpected keyword argument 'tag'

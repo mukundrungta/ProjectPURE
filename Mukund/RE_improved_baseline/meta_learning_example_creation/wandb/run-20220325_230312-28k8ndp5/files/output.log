@@ -1,0 +1,58 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 46%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                                                                                                          | 31473/68124 [01:14<01:27, 419.33it/s]Traceback (most recent call last):
+  File "train_tacred.py", line 393, in <module>
+    main()
+  File "train_tacred.py", line 366, in main
+    train_features = processor.read(train_file) #dictionary with id as key as features as value
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning_example_creation/prepro.py", line 151, in read
+    input_ids, new_ss, new_os = self.tokenize(tokens, d['subj_type'], d['obj_type'], ss, se, os, oe)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning_example_creation/prepro.py", line 112, in tokenize
+    if i_t == oe:
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train_tacred.py", line 393, in <module>
+    main()
+  File "train_tacred.py", line 366, in main
+    train_features = processor.read(train_file) #dictionary with id as key as features as value
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning_example_creation/prepro.py", line 151, in read
+    input_ids, new_ss, new_os = self.tokenize(tokens, d['subj_type'], d['obj_type'], ss, se, os, oe)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning_example_creation/prepro.py", line 112, in tokenize
+    if i_t == oe:
+KeyboardInterrupt
+ 46%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                                                                                                          | 31473/68124 [01:14<01:27, 419.76it/s]

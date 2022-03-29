@@ -1,0 +1,27 @@
+2022-03-14 23:07:29,375 INFO    MainThread:42344 [wandb_setup.py:_flush():75] Loading settings from /nethome/mrungta8/.config/wandb/settings
+2022-03-14 23:07:29,376 INFO    MainThread:42344 [wandb_setup.py:_flush():75] Loading settings from /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/settings
+2022-03-14 23:07:29,376 INFO    MainThread:42344 [wandb_setup.py:_flush():75] Loading settings from environment variables: {}
+2022-03-14 23:07:29,376 INFO    MainThread:42344 [wandb_setup.py:_flush():75] Inferring run settings from compute environment: {'program_relpath': 'Mukund/RE_improved_baseline/meta_learning/train_tacred.py', 'program': 'meta_learning/train_tacred.py'}
+2022-03-14 23:07:29,376 INFO    MainThread:42344 [wandb_init.py:_log_setup():386] Logging user logs to /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220314_230729-1zkyx32b/logs/debug.log
+2022-03-14 23:07:29,376 INFO    MainThread:42344 [wandb_init.py:_log_setup():387] Logging internal logs to /nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/wandb/run-20220314_230729-1zkyx32b/logs/debug-internal.log
+2022-03-14 23:07:29,376 INFO    MainThread:42344 [wandb_init.py:init():420] calling init triggers
+2022-03-14 23:07:29,376 INFO    MainThread:42344 [wandb_init.py:init():427] wandb.init called with sweep_config: {}
+config: {}
+2022-03-14 23:07:29,377 INFO    MainThread:42344 [wandb_init.py:init():471] starting backend
+2022-03-14 23:07:29,377 INFO    MainThread:42344 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-03-14 23:07:29,388 INFO    MainThread:42344 [backend.py:ensure_launched():219] starting backend process...
+2022-03-14 23:07:29,398 INFO    MainThread:42344 [backend.py:ensure_launched():225] started backend process with pid: 42465
+2022-03-14 23:07:29,400 INFO    MainThread:42344 [wandb_init.py:init():480] backend started and connected
+2022-03-14 23:07:29,412 INFO    MainThread:42344 [wandb_init.py:init():550] updated telemetry
+2022-03-14 23:07:29,442 INFO    MainThread:42344 [wandb_init.py:init():581] communicating current version
+2022-03-14 23:07:30,549 INFO    MainThread:42344 [wandb_init.py:init():586] got version response upgrade_message: "wandb version 0.12.11 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-03-14 23:07:30,549 INFO    MainThread:42344 [wandb_init.py:init():596] communicating run to backend with 30 second timeout
+2022-03-14 23:07:30,661 INFO    MainThread:42344 [wandb_init.py:init():624] starting run threads in backend
+2022-03-14 23:07:32,709 INFO    MainThread:42344 [wandb_run.py:_console_start():1827] atexit reg
+2022-03-14 23:07:32,710 INFO    MainThread:42344 [wandb_run.py:_redirect():1701] redirect: SettingsConsole.REDIRECT
+2022-03-14 23:07:32,713 INFO    MainThread:42344 [wandb_run.py:_redirect():1706] Redirecting console.
+2022-03-14 23:07:32,716 INFO    MainThread:42344 [wandb_run.py:_redirect():1762] Redirects installed.
+2022-03-14 23:07:32,716 INFO    MainThread:42344 [wandb_init.py:init():651] run started, returning control to user process
+2022-03-15 00:22:02,036 INFO    MainThread:42344 [wandb_run.py:_atexit_cleanup():1797] got exitcode: 255
+2022-03-15 00:22:02,044 INFO    MainThread:42344 [wandb_run.py:_restore():1769] restore

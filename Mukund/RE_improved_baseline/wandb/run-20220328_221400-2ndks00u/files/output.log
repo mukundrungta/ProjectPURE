@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 269, in main
+    train_features_meta_train, train_features_meta_test = processor.read_metalearning(train_file) #get features for meta-learning
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 226, in read_metalearning
+    for key in dict_meta_test_map.keys()[:100]:
+TypeError: 'dict_keys' object is not subscriptable
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 269, in main
+    train_features_meta_train, train_features_meta_test = processor.read_metalearning(train_file) #get features for meta-learning
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 226, in read_metalearning
+    for key in dict_meta_test_map.keys()[:100]:
+TypeError: 'dict_keys' object is not subscriptable

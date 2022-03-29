@@ -1,0 +1,62 @@
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:02<00:00, 407.42it/s]
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:02<00:00, 414.28it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:02<00:00, 422.36it/s]
+ 44%|██████████████████████████████████████████████████████▎                                                                     | 438/1000 [00:01<00:01, 388.01it/s]
+Total steps: 1250
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:02<00:00, 457.05it/s]
+  0%|                                                                                                                                        | 0/250 [00:00<?, ?it/s]/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/optimization.py:146: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [00:18<00:00, 13.61it/s]
+
+
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [00:20<00:00, 12.20it/s]
+
+
+
+
+
+ 57%|███████████████████████████████████████████████████████████████████████▌                                                      | 142/250 [00:11<00:08, 12.34it/s]Traceback (most recent call last):
+  File "train_retacred.py", line 254, in <module>
+    main()
+  File "train_retacred.py", line 250, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 44, in train
+    scaler.scale(loss).backward()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_tensor.py", line 307, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 156, in backward
+    allow_unreachable=True, accumulate_grad=True)  # allow_unreachable flag
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train_retacred.py", line 254, in <module>
+    main()
+  File "train_retacred.py", line 250, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 44, in train
+    scaler.scale(loss).backward()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_tensor.py", line 307, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 156, in backward
+    allow_unreachable=True, accumulate_grad=True)  # allow_unreachable flag
+KeyboardInterrupt
+ 57%|███████████████████████████████████████████████████████████████████████▌                                                      | 142/250 [00:11<00:08, 12.25it/s]

@@ -1,0 +1,272 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 58465/58465 [02:04<00:00, 471.39it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 19584/19584 [00:39<00:00, 494.27it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13418/13418 [00:26<00:00, 503.62it/s]
+
+
+
+
+
+
+
+
+ 96%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋      | 10397/10844 [00:17<00:00, 616.43it/s]
+Total steps: 18270
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:17<00:00, 611.91it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 13%|███████████████████▊                                                                                                                                         | 461/3654 [00:51<06:18,  8.43it/s]train_retacred.py:52: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  torch.nn.utils.clip_grad_norm_(model.parameters(), args.max_grad_norm)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 68%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                 | 2499/3654 [04:38<02:14,  8.59it/s]
+{'dev_f1': 78.2908603180686}
+ 68%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                 | 2499/3654 [05:24<02:29,  7.71it/s]
+Traceback (most recent call last):
+  File "train_retacred.py", line 344, in <module>
+    main()
+  File "train_retacred.py", line 339, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 61, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_retacred.py", line 164, in evaluate
+    accuracy_challenge(keys, preds)
+NameError: name 'accuracy_challenge' is not defined
+Traceback (most recent call last):
+  File "train_retacred.py", line 344, in <module>
+    main()
+  File "train_retacred.py", line 339, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 61, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_retacred.py", line 164, in evaluate
+    accuracy_challenge(keys, preds)
+NameError: name 'accuracy_challenge' is not defined
+{'challenge_test_f1': 45.41974539303837}

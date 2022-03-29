@@ -1,0 +1,109 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 58465/58465 [01:59<00:00, 489.18it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 19584/19584 [00:38<00:00, 509.06it/s]
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13418/13418 [00:25<00:00, 531.29it/s]
+Traceback (most recent call last):
+  File "train_retacred.py", line 344, in <module>
+    main()
+  File "train_retacred.py", line 325, in main
+    challenge_test_features = processor.read(challenge_test_file, os.path.join(args.data_dir, "complexity/is_complex_challenge.json"))
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_additional_token.py", line 214, in read
+    with open(file_in, "r") as fh:
+FileNotFoundError: [Errno 2] No such file or directory: 'dataset/retacred/challenge_test.json'
+Traceback (most recent call last):
+  File "train_retacred.py", line 344, in <module>
+    main()
+  File "train_retacred.py", line 325, in main
+    challenge_test_features = processor.read(challenge_test_file, os.path.join(args.data_dir, "complexity/is_complex_challenge.json"))
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_additional_token.py", line 214, in read
+    with open(file_in, "r") as fh:
+FileNotFoundError: [Errno 2] No such file or directory: 'dataset/retacred/challenge_test.json'

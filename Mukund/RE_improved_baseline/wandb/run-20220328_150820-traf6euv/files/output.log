@@ -1,0 +1,130 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 58465/58465 [01:54<00:00, 508.79it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 19584/19584 [00:36<00:00, 531.27it/s]
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13418/13418 [00:24<00:00, 552.74it/s]
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:17<00:00, 621.91it/s]
+Total steps: 18270
+Warmup steps: 1827
+  0%|                                                                                                                                                                       | 0/3654 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_retacred.py", line 344, in <module>
+    main()
+  File "train_retacred.py", line 339, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 45, in train
+    outputs = model(**inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/autocast_mode.py", line 141, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/model.py", line 67, in forward
+    lookup_tensor = torch.tensor(tag, dtype=torch.long)
+TypeError: an integer is required (got type NoneType)
+Traceback (most recent call last):
+  File "train_retacred.py", line 344, in <module>
+    main()
+  File "train_retacred.py", line 339, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 45, in train
+    outputs = model(**inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/autocast_mode.py", line 141, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/model.py", line 67, in forward
+    lookup_tensor = torch.tensor(tag, dtype=torch.long)
+TypeError: an integer is required (got type NoneType)

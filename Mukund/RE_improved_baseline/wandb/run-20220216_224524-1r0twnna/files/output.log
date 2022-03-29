@@ -1,0 +1,57 @@
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:02<00:00, 403.81it/s]
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:02<00:00, 400.68it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:02<00:00, 417.10it/s]
+ 43%|█████████████████████████████████████████████████████▎                                                                      | 430/1000 [00:01<00:01, 382.69it/s]
+Total steps: 1250
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:02<00:00, 452.55it/s]
+  0%|                                                                                                                                        | 0/250 [00:00<?, ?it/s]/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/optimization.py:146: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+
+
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 250/250 [00:19<00:00, 13.08it/s]
+
+
+
+
+
+
+
+
+
+
+ 99%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉ | 248/250 [00:20<00:00, 12.20it/s]
+{'dev_f1': 49.32249322493225}
+{'test_f1': 54.33526011560694}
+ 99%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉ | 248/250 [00:20<00:00, 12.20it/s]Traceback (most recent call last):
+  File "train_retacred.py", line 254, in <module>
+    main()
+  File "train_retacred.py", line 250, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 58, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_retacred.py", line 161, in evaluate
+    accuracy_challenge(keys, preds)
+NameError: name 'accuracy_challenge' is not defined
+Traceback (most recent call last):
+  File "train_retacred.py", line 254, in <module>
+    main()
+  File "train_retacred.py", line 250, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 58, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_retacred.py", line 161, in evaluate
+    accuracy_challenge(keys, preds)
+NameError: name 'accuracy_challenge' is not defined
+ 99%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉ | 248/250 [00:29<00:00,  8.43it/s]

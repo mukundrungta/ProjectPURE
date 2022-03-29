@@ -1,0 +1,355 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:52<00:00, 395.18it/s]
+  1%|▉                                                                                                      | 214/22631 [00:00<00:53, 419.78it/s]
+Number of meta-train features = 8063
+Number of meta-test features = 8063
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:56<00:00, 402.14it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:38<00:00, 401.23it/s]
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:23<00:00, 466.99it/s]
+  0%|                                                                                                                   | 0/3753 [00:00<?, ?it/s]/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py:155: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+  0%|▏                                                                                                          | 5/3753 [00:00<06:50,  9.13it/s]
+Total steps: 37530
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 67%|█████████████████████████████████████████████████████████████████████▎                                  | 2499/3753 [03:40<01:39, 12.60it/s]
+{'dev_f1': 0.2194988110481068}
+{'test_f1': 0.23988005997001496}
+{'challenge_test_f1': 0.6696868229269254}
+ACCURACY:   55.30%
+POSITIVE ACCURACY:   0.35%
+NEGATIVE ACCURACY:   99.27%
+-------------------------------------------------------------------
+TRUE POSITIVE:   0.002 		 (NUMBER:   17)
+FALSE POSITIVE:   0.004 		 (NUMBER:   44)
+TRUE NEGATIVE:   0.552 		 (NUMBER:   5981)
+FALSE NEGATIVE:   0.443 		 (NUMBER:   4802)
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 3753/3753 [05:57<00:00, 10.50it/s]
+0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 130, in train_meta_learning
+    with torch.backends.cudnn.flags(enabled=False), higher.innerloop_ctx(model, inner_opt, copy_initial_weights=False) as (fast_model, diffopt):
+  File "/usr/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/__init__.py", line 97, in innerloop_ctx
+    track_higher_grads=track_higher_grads
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 783, in get_diff_optim
+    "Optimizer type {} not supported by higher yet.".format(type(opt))
+ValueError: Optimizer type <class 'transformers.optimization.AdamW'> not supported by higher yet.
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 130, in train_meta_learning
+    with torch.backends.cudnn.flags(enabled=False), higher.innerloop_ctx(model, inner_opt, copy_initial_weights=False) as (fast_model, diffopt):
+  File "/usr/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/__init__.py", line 97, in innerloop_ctx
+    track_higher_grads=track_higher_grads
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 783, in get_diff_optim
+    "Optimizer type {} not supported by higher yet.".format(type(opt))
+ValueError: Optimizer type <class 'transformers.optimization.AdamW'> not supported by higher yet.

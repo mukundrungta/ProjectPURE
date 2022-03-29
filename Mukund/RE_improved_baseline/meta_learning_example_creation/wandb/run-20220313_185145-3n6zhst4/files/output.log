@@ -1,0 +1,102 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:40<00:00, 425.57it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:00<00:00, 283.26it/s]
+  0%|                                                                                                                     | 0/10 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 291, in <module>
+    main()
+  File "train_tacred.py", line 285, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 128, in train
+    easy_feature_inputs = {'input_ids': easy_feature['input_ids'].to(args.device),
+AttributeError: 'list' object has no attribute 'to'
+Traceback (most recent call last):
+  File "train_tacred.py", line 291, in <module>
+    main()
+  File "train_tacred.py", line 285, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 128, in train
+    easy_feature_inputs = {'input_ids': easy_feature['input_ids'].to(args.device),
+AttributeError: 'list' object has no attribute 'to'
+****************************** Starting preprocessing of the dataset ******************************
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 10
+****************************** Preprocessing completed ******************************

@@ -1,0 +1,41 @@
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [00:06<00:00, 813.79it/s]
+Number of train features = 58465
+Number of test features = 58465
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [00:05<00:00, 950.64it/s]
+
+ 70%|███████████████████████████████████████████████████████████████████████████████████████                                      | 3483/5000 [00:03<00:01, 1000.01it/s]
+Total steps: 36540
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [00:05<00:00, 974.54it/s]
+0it [00:00, ?it/s]/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:134: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+1it [00:02,  2.09s/it]
+Traceback (most recent call last):
+  File "train_retacred.py", line 248, in <module>
+    main()
+  File "train_retacred.py", line 245, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, benchmarks)
+  File "train_retacred.py", line 109, in train_meta_learning
+    scaler.scale(total_loss).backward()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_tensor.py", line 307, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 156, in backward
+    allow_unreachable=True, accumulate_grad=True)  # allow_unreachable flag
+RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 10.76 GiB total capacity; 9.48 GiB already allocated; 11.44 MiB free; 9.59 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Traceback (most recent call last):
+  File "train_retacred.py", line 248, in <module>
+    main()
+  File "train_retacred.py", line 245, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, benchmarks)
+  File "train_retacred.py", line 109, in train_meta_learning
+    scaler.scale(total_loss).backward()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/_tensor.py", line 307, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 156, in backward
+    allow_unreachable=True, accumulate_grad=True)  # allow_unreachable flag
+RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 10.76 GiB total capacity; 9.48 GiB already allocated; 11.44 MiB free; 9.59 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

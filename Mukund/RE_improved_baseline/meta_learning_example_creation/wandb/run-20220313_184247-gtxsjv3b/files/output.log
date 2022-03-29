@@ -1,0 +1,195 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:37<00:00, 431.31it/s]
+****************************** Starting preprocessing of the dataset ******************************
+Size of hard = 2156
+Size of Ambiguous = 4614
+Size of Easy = 61294
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████▋| 61067/61294 [03:04<00:00, 336.42it/s]
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 61286
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 61294/61294 [03:04<00:00, 331.43it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 292, in <module>
+    main()
+  File "train_tacred.py", line 286, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 127, in train
+    for guid in tqdm(guid_easy):
+NameError: name 'guid_easy' is not defined
+Traceback (most recent call last):
+  File "train_tacred.py", line 292, in <module>
+    main()
+  File "train_tacred.py", line 286, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 127, in train
+    for guid in tqdm(guid_easy):
+NameError: name 'guid_easy' is not defined

@@ -1,0 +1,207 @@
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10000/10000 [00:11<00:00, 833.67it/s]
+Number of train features = 500
+Number of test features = 500
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10000/10000 [00:10<00:00, 926.89it/s]
+
+
+
+
+ 78%|█████████████████████████████████████████████████████████████████████████████████████████████████▎                          | 7848/10000 [00:08<00:02, 1025.16it/s]
+Total steps: 6250
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10000/10000 [00:10<00:00, 956.93it/s]
+  0%|                                                                                                                                          | 0/2500 [00:00<?, ?it/s]/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/optimization.py:146: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 70%|████████████████████████████████████████████████████████████████████████████████████████▌                                      | 1743/2500 [03:17<01:19,  9.49it/s]Traceback (most recent call last):
+  File "train_retacred.py", line 248, in <module>
+    main()
+  File "train_retacred.py", line 244, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 42, in train
+    outputs = model(**inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autocast_mode.py", line 198, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/model.py", line 25, in forward
+    attention_mask=attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 740, in forward
+    encoder_attention_mask=encoder_extended_attention_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 386, in forward
+    layer_outputs = layer_module(hidden_states, attention_mask, head_mask[i], encoder_hidden_states, encoder_attention_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 357, in forward
+    self_attention_outputs = self.attention(hidden_states, attention_mask, head_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 311, in forward
+    self_outputs = self.self(hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 246, in forward
+    attention_probs = nn.Softmax(dim=-1)(attention_scores)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/activation.py", line 1226, in forward
+    return F.softmax(input, self.dim, _stacklevel=5)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/functional.py", line 1680, in softmax
+    ret = input.softmax(dim)
+RuntimeError: CUDA out of memory. Tried to allocate 28.00 MiB (GPU 0; 10.76 GiB total capacity; 9.42 GiB already allocated; 25.44 MiB free; 9.58 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Traceback (most recent call last):
+  File "train_retacred.py", line 248, in <module>
+    main()
+  File "train_retacred.py", line 244, in main
+    train(args, model, train_features, benchmarks)
+  File "train_retacred.py", line 42, in train
+    outputs = model(**inputs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autocast_mode.py", line 198, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/model.py", line 25, in forward
+    attention_mask=attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 740, in forward
+    encoder_attention_mask=encoder_extended_attention_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 386, in forward
+    layer_outputs = layer_module(hidden_states, attention_mask, head_mask[i], encoder_hidden_states, encoder_attention_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 357, in forward
+    self_attention_outputs = self.attention(hidden_states, attention_mask, head_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 311, in forward
+    self_outputs = self.self(hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/modeling_bert.py", line 246, in forward
+    attention_probs = nn.Softmax(dim=-1)(attention_scores)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/activation.py", line 1226, in forward
+    return F.softmax(input, self.dim, _stacklevel=5)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/functional.py", line 1680, in softmax
+    ret = input.softmax(dim)
+RuntimeError: CUDA out of memory. Tried to allocate 28.00 MiB (GPU 0; 10.76 GiB total capacity; 9.42 GiB already allocated; 25.44 MiB free; 9.58 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+ 70%|████████████████████████████████████████████████████████████████████████████████████████▌                                      | 1743/2500 [03:18<01:26,  8.80it/s]

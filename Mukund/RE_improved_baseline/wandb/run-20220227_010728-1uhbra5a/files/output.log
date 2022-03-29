@@ -1,0 +1,17 @@
+  0%|                                                                                                                     | 0/186635976 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 237, in <module>
+    main()
+  File "train_tacred_datamap.py", line 215, in main
+    train_features = processor.read(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_datamap.py", line 145, in read
+    ss, se = d['subj_start'], d['subj_end']
+TypeError: string indices must be integers
+Traceback (most recent call last):
+  File "train_tacred_datamap.py", line 237, in <module>
+    main()
+  File "train_tacred_datamap.py", line 215, in main
+    train_features = processor.read(train_file)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/prepro_datamap.py", line 145, in read
+    ss, se = d['subj_start'], d['subj_end']
+TypeError: string indices must be integers

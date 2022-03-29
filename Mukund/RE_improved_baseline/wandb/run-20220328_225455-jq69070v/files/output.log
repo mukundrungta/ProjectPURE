@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "meta_learning/train_retacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_retacred.py", line 258, in main
+    model.to(0)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 852, in to
+    return self._apply(convert)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 552, in _apply
+    param_applied = fn(param)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 850, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 10.76 GiB total capacity; 177.10 MiB already allocated; 16.44 MiB free; 188.00 MiB reserved in total by PyTorch)
+Traceback (most recent call last):
+  File "meta_learning/train_retacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_retacred.py", line 258, in main
+    model.to(0)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 852, in to
+    return self._apply(convert)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 530, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 552, in _apply
+    param_applied = fn(param)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 850, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 10.76 GiB total capacity; 177.10 MiB already allocated; 16.44 MiB free; 188.00 MiB reserved in total by PyTorch)

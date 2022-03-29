@@ -1,0 +1,884 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:37<00:00, 431.54it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:50<00:00, 450.93it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:33<00:00, 463.12it/s]
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:19<00:00, 547.96it/s]
+Total steps: 340620
+Warmup steps: 34062
+  0%|                                                                                                          | 0/68124 [00:00<?, ?it/s]/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py:155: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1050.)
+  exp_avg.mul_(beta1).add_(1.0 - beta1, grad)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  4%|███▍                                                                                         | 2499/68124 [03:30<1:24:34, 12.93it/s]
+{'dev_f1': 0.0}
+{'test_f1': 0.0}
+{'challenge_test_f1': 0.0}
+ACCURACY:   55.55%
+POSITIVE ACCURACY:   0.00%
+NEGATIVE ACCURACY:   100.00%
+-------------------------------------------------------------------
+TRUE POSITIVE:   0.000 		 (NUMBER:   0)
+FALSE POSITIVE:   0.000 		 (NUMBER:   0)
+TRUE NEGATIVE:   0.556 		 (NUMBER:   6025)
+FALSE NEGATIVE:   0.444 		 (NUMBER:   4819)
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  7%|██████▊                                                                                      | 4998/68124 [14:20<1:20:48, 13.02it/s]
+{'dev_f1': 15.824248430789561}
+
+  7%|██████▋                                                                                    | 5010/68124 [21:50<206:22:38, 11.77s/it]
+{'challenge_test_f1': 1.3541239228559705}
+ACCURACY:   55.75%
+POSITIVE ACCURACY:   0.68%
+NEGATIVE ACCURACY:   99.82%
+-------------------------------------------------------------------
+TRUE POSITIVE:   0.003 		 (NUMBER:   33)
+FALSE POSITIVE:   0.001 		 (NUMBER:   11)
+TRUE NEGATIVE:   0.555 		 (NUMBER:   6014)
+FALSE NEGATIVE:   0.441 		 (NUMBER:   4786)
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 11%|██████████▏                                                                                  | 7498/68124 [25:10<1:15:22, 13.40it/s]
+{'dev_f1': 33.035714285714285}
+{'test_f1': 32.10202286719437}
+{'challenge_test_f1': 7.942135867252873}
+ACCURACY:   55.79%
+POSITIVE ACCURACY:   5.81%
+NEGATIVE ACCURACY:   95.78%
+-------------------------------------------------------------------
+TRUE POSITIVE:   0.026 		 (NUMBER:   280)
+FALSE POSITIVE:   0.023 		 (NUMBER:   254)
+TRUE NEGATIVE:   0.532 		 (NUMBER:   5771)
+FALSE NEGATIVE:   0.419 		 (NUMBER:   4539)
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 15%|█████████████▋                                                                               | 9998/68124 [36:30<1:15:01, 12.91it/s]
+{'dev_f1': 42.39619809904952}
+{'test_f1': 44.98368678629689}
+{'challenge_test_f1': 10.526315789473681}
+ACCURACY:   56.66%
+POSITIVE ACCURACY:   6.14%
+NEGATIVE ACCURACY:   97.08%
+-------------------------------------------------------------------
+TRUE POSITIVE:   0.027 		 (NUMBER:   296)
+FALSE POSITIVE:   0.016 		 (NUMBER:   176)
+TRUE NEGATIVE:   0.539 		 (NUMBER:   5849)
+FALSE NEGATIVE:   0.417 		 (NUMBER:   4523)
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 18%|████████████████▉                                                                           | 12498/68124 [48:00<1:13:09, 12.67it/s]
+{'dev_f1': 24.008288928359974}
+{'test_f1': 24.75070314497571}
+{'challenge_test_f1': 3.234042553191489}
+ACCURACY:   55.72%
+POSITIVE ACCURACY:   1.97%
+NEGATIVE ACCURACY:   98.72%
+-------------------------------------------------------------------
+TRUE POSITIVE:   0.009 		 (NUMBER:   95)
+FALSE POSITIVE:   0.007 		 (NUMBER:   77)
+TRUE NEGATIVE:   0.549 		 (NUMBER:   5948)
+FALSE NEGATIVE:   0.436 		 (NUMBER:   4724)
+-------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 22%|████████████████████▎                                                                       | 14998/68124 [58:50<1:10:36, 12.54it/s]Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 184, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 57, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_tacred.py", line 78, in evaluate
+    logit = model(**inputs)[0]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autocast_mode.py", line 198, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/model.py", line 25, in forward
+    attention_mask=attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 790, in forward
+    encoder_attention_mask=encoder_extended_attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 407, in forward
+    hidden_states, attention_mask, head_mask[i], encoder_hidden_states, encoder_attention_mask
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 368, in forward
+    self_attention_outputs = self.attention(hidden_states, attention_mask, head_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 314, in forward
+    hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 216, in forward
+    mixed_query_layer = self.query(hidden_states)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/linear.py", line 103, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/functional.py", line 1848, in linear
+    return torch._C._nn.linear(input, weight, bias)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 184, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 57, in train
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "train_tacred.py", line 78, in evaluate
+    logit = model(**inputs)[0]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autocast_mode.py", line 198, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/model.py", line 25, in forward
+    attention_mask=attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 790, in forward
+    encoder_attention_mask=encoder_extended_attention_mask,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 407, in forward
+    hidden_states, attention_mask, head_mask[i], encoder_hidden_states, encoder_attention_mask
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 368, in forward
+    self_attention_outputs = self.attention(hidden_states, attention_mask, head_mask)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 314, in forward
+    hidden_states, attention_mask, head_mask, encoder_hidden_states, encoder_attention_mask
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/modeling_bert.py", line 216, in forward
+    mixed_query_layer = self.query(hidden_states)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/modules/linear.py", line 103, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/nn/functional.py", line 1848, in linear
+    return torch._C._nn.linear(input, weight, bias)
+KeyboardInterrupt
+ 22%|███████████████████▊                                                                      | 14998/68124 [1:01:23<3:37:29,  4.07it/s]

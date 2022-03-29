@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 295, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 267, in main
+    train_features_meta_train, train_features_meta_test = processor.read_metalearning(train_file) #get features for meta-learning
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 222, in read_metalearning
+    dataset_document = self.load_tacred(file_in)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 200, in load_tacred
+    dataset_document[id_] = Document(id=id_,
+NameError: name 'Document' is not defined
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 295, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 267, in main
+    train_features_meta_train, train_features_meta_test = processor.read_metalearning(train_file) #get features for meta-learning
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 222, in read_metalearning
+    dataset_document = self.load_tacred(file_in)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/prepro.py", line 200, in load_tacred
+    dataset_document[id_] = Document(id=id_,
+NameError: name 'Document' is not defined

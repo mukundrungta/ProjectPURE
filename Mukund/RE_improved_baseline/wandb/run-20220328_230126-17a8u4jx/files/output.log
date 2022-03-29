@@ -1,0 +1,41 @@
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:00<00:00, 452.69it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 560.32it/s]
+Number of meta-train features = 3
+Number of meta-test features = 3
+Number of normal features = 32
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 441.72it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 256.30it/s]
+0it [00:00, ?it/s]
+0it [00:00, ?it/s]
+0it [00:00, ?it/s]
+0it [00:00, ?it/s]
+0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 163, in train_meta_learning
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "meta_learning/train_tacred.py", line 193, in evaluate
+    accuracy_challenge_tacred(keys, preds)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/evaluation.py", line 134, in accuracy_challenge_tacred
+    if(pred_label[index] == row['id_relation']):
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 163, in train_meta_learning
+    f1, output = evaluate(args, model, features, tag=tag)
+  File "meta_learning/train_tacred.py", line 193, in evaluate
+    accuracy_challenge_tacred(keys, preds)
+  File "/nethome/mrungta8/project/ProjectPURE/Mukund/RE_improved_baseline/meta_learning/evaluation.py", line 134, in accuracy_challenge_tacred
+    if(pred_label[index] == row['id_relation']):
+IndexError: list index out of range
+Total steps: 10
+Warmup steps: 1
+{'dev_f1': 0.0}
+{'test_f1': 1.6806722689075633}
+{'challenge_test_f1': 5.0}

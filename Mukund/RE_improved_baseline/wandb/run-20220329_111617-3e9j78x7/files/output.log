@@ -1,0 +1,78 @@
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 64/64 [00:00<00:00, 571.71it/s]
+  0%|                                                                                                                                                                            | 0/22631 [00:00<?, ?it/s]
+Number of meta-train features = 9
+Number of meta-test features = 9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:37<00:00, 609.27it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:24<00:00, 624.02it/s]
+
+
+
+
+
+
+ 96%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍      | 10395/10844 [00:13<00:00, 701.12it/s]
+Total steps: 20
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:14<00:00, 751.72it/s]
+0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 136, in train_meta_learning
+    diffopt.step(meta_train_loss) # computing temporary params on meta-train set
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 233, in step
+    allow_unused=True  # boo
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 228, in grad
+    inputs, allow_unused, accumulate_grad=False)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/function.py", line 87, in apply
+    return self._forward_cls.backward(self, *args)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/checkpoint.py", line 97, in backward
+    "Checkpointing is not compatible with .grad() or when an `inputs` parameter"
+RuntimeError: Checkpointing is not compatible with .grad() or when an `inputs` parameter is passed to .backward(). Please use .backward() and do not pass its `inputs` argument.
+Traceback (most recent call last):
+  File "meta_learning/train_tacred.py", line 298, in <module>
+    main()
+  File "meta_learning/train_tacred.py", line 294, in main
+    train_meta_learning(args, model, train_features_meta_train, train_features_meta_test, train_features, benchmarks)
+  File "meta_learning/train_tacred.py", line 136, in train_meta_learning
+    diffopt.step(meta_train_loss) # computing temporary params on meta-train set
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/higher/optim.py", line 233, in step
+    allow_unused=True  # boo
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/__init__.py", line 228, in grad
+    inputs, allow_unused, accumulate_grad=False)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/autograd/function.py", line 87, in apply
+    return self._forward_cls.backward(self, *args)  # type: ignore[attr-defined]
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/utils/checkpoint.py", line 97, in backward
+    "Checkpointing is not compatible with .grad() or when an `inputs` parameter"
+RuntimeError: Checkpointing is not compatible with .grad() or when an `inputs` parameter is passed to .backward(). Please use .backward() and do not pass its `inputs` argument.

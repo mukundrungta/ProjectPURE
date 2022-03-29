@@ -1,0 +1,76 @@
+Traceback (most recent call last):
+  File "train_retacred.py", line 252, in <module>
+    main()
+  File "train_retacred.py", line 216, in main
+    num_labels=args.num_class,
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/configuration_auto.py", line 190, in from_pretrained
+    return RobertaConfig.from_pretrained(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/configuration_utils.py", line 158, in from_pretrained
+    proxies=proxies, resume_download=resume_download)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/file_utils.py", line 211, in cached_path
+    resume_download=resume_download, user_agent=user_agent)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/file_utils.py", line 319, in get_from_cache
+    response = requests.head(url, allow_redirects=True, proxies=proxies, timeout=etag_timeout)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/api.py", line 102, in head
+    return request('head', url, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/adapters.py", line 450, in send
+    timeout=timeout
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.6/socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "train_retacred.py", line 252, in <module>
+    main()
+  File "train_retacred.py", line 216, in main
+    num_labels=args.num_class,
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/configuration_auto.py", line 190, in from_pretrained
+    return RobertaConfig.from_pretrained(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/configuration_utils.py", line 158, in from_pretrained
+    proxies=proxies, resume_download=resume_download)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/file_utils.py", line 211, in cached_path
+    resume_download=resume_download, user_agent=user_agent)
+  File "/usr/local/lib/python3.6/dist-packages/transformers-2.3.0-py3.6.egg/transformers/file_utils.py", line 319, in get_from_cache
+    response = requests.head(url, allow_redirects=True, proxies=proxies, timeout=etag_timeout)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/api.py", line 102, in head
+    return request('head', url, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/requests/adapters.py", line 450, in send
+    timeout=timeout
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connection.py", line 358, in connect
+    conn = self._new_conn()
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.6/socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+KeyboardInterrupt

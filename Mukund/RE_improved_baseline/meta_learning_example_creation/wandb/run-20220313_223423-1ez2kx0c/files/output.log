@@ -1,0 +1,217 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 68124/68124 [02:43<00:00, 417.49it/s]
+****************************** Starting preprocessing of the dataset ******************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 99%|████████████████████████████████████████████████████████████████████████████████████████████████████▍| 60971/61294 [02:58<00:00, 351.49it/s]
+Total number of easy examples = 61294
+Easy examples for which meta-test exists = 61286
+****************************** Preprocessing completed ******************************
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 61294/61294 [02:59<00:00, 340.90it/s]
+  0%|                                                                                                         | 14/61294 [00:00<15:40, 65.19it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+  3%|██▊                                                                                                    | 1705/61294 [00:24<14:11, 70.01it/s]Traceback (most recent call last):
+  File "train_tacred.py", line 322, in <module>
+    main()
+  File "train_tacred.py", line 314, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 177, in train
+    index = np.argmax(distance_list)
+  File "<__array_function__ internals>", line 6, in argmax
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/numpy/core/fromnumeric.py", line 1186, in argmax
+    return _wrapfunc(a, 'argmax', axis=axis, out=out)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/numpy/core/fromnumeric.py", line 61, in _wrapfunc
+    return bound(*args, **kwds)
+ValueError: attempt to get argmax of an empty sequence
+Traceback (most recent call last):
+  File "train_tacred.py", line 322, in <module>
+    main()
+  File "train_tacred.py", line 314, in main
+    dict_meta_test_map = train(args, model, train_features, meta_test_filtered_list)
+  File "train_tacred.py", line 177, in train
+    index = np.argmax(distance_list)
+  File "<__array_function__ internals>", line 6, in argmax
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/numpy/core/fromnumeric.py", line 1186, in argmax
+    return _wrapfunc(a, 'argmax', axis=axis, out=out)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/numpy/core/fromnumeric.py", line 61, in _wrapfunc
+    return bound(*args, **kwds)
+ValueError: attempt to get argmax of an empty sequence
+  3%|██▊                                                                                                    | 1705/61294 [00:24<14:28, 68.65it/s]

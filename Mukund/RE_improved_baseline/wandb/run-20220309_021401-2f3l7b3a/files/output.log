@@ -1,0 +1,123 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 22611/22611 [00:54<00:00, 412.35it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 22631/22631 [00:54<00:00, 417.77it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 15509/15509 [00:35<00:00, 434.27it/s]
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████▌| 10800/10844 [00:21<00:00, 517.72it/s]
+Total steps: 14130
+100%|█████████████████████████████████████████████████████████████████████████████████████████████| 10844/10844 [00:21<00:00, 510.81it/s]
+  0%|                                                                                                           | 0/2826 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 184, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 49, in train
+    scaler.step(optimizer)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/grad_scaler.py", line 338, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/grad_scaler.py", line 285, in _maybe_opt_step
+    retval = optimizer.step(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/lr_scheduler.py", line 65, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py", line 146, in step
+    state["exp_avg_sq"] = torch.zeros_like(p.data)
+RuntimeError: CUDA out of memory. Tried to allocate 86.00 MiB (GPU 0; 10.76 GiB total capacity; 931.41 MiB already allocated; 63.44 MiB free; 1014.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Traceback (most recent call last):
+  File "train_tacred.py", line 188, in <module>
+    main()
+  File "train_tacred.py", line 184, in main
+    train(args, model, train_features, benchmarks)
+  File "train_tacred.py", line 49, in train
+    scaler.step(optimizer)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/grad_scaler.py", line 338, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/cuda/amp/grad_scaler.py", line 285, in _maybe_opt_step
+    retval = optimizer.step(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/lr_scheduler.py", line 65, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/torch/optim/optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "/nethome/mrungta8/.local/lib/python3.6/site-packages/transformers/optimization.py", line 146, in step
+    state["exp_avg_sq"] = torch.zeros_like(p.data)
+RuntimeError: CUDA out of memory. Tried to allocate 86.00 MiB (GPU 0; 10.76 GiB total capacity; 931.41 MiB already allocated; 63.44 MiB free; 1014.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
